@@ -1,0 +1,23 @@
+lit-header {
+    max-width: 56rem;
+    margin: 4rem auto;
+}
+
+.main {
+    max-width: 54rem;
+    margin: 0 auto;
+}
+
+.img-paper {
+    width: 100%;
+}
+
+.text {
+    width: 20em;
+    position: fixed;
+    top: 24rem;
+    right: 28rem;
+    color: #333333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: skew(-25deg, 25deg);
+}

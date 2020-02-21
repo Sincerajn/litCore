@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>litCore</title>
-    <link rel="stylesheet" href="css/litCore.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>litCore</title>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/litCore.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
-<body>
-    
-<script src="js/litCore.js"></script>
+
+<body class="-lit">
+  <lit-header>
+    <lit-left>
+      <lit-title>litCore</lit-title>
+    </lit-left>
+    <lit-right>
+      <lit-nav>
+        <a class="-lit-active" href="index.html">首页</a>
+        <a href="document.html">文档</a>
+        <a href="about.html">关于</a>
+      </lit-nav>
+    </lit-right>
+  </lit-header>
+  <main>
+    <div class="main">
+      <img class="img-paper" src="img/paper.jpg" alt="">
+      <div class="text">
+        <p>使用诸多现代化开发理念与技术，迅速构建响应式网页。</p>
+        <p>支持通过类库便捷修改样式，同时提供封装控件直接使用。</p>
+        <p>与内置的 litCore 核心联动，为控件赋予功能。</p>
+      </div>
+    </div>
+  </main>
+  <script src="js/litCore.js" type="module""></script>
 </body>
 </html>

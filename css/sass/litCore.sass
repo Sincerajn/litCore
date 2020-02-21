@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 16:54:58
+ * @LastEditTime: 2020-02-21 20:34:03
  */
 
 @import "_global" // 全局样式
@@ -133,7 +133,7 @@ header.-lit
     align-items: baseline
     background: $primary
     padding: .5rem 1rem
-    box-shadow: $header-normal-shadow
+    // box-shadow: $header-normal-shadow
         
     lit-title,
     .-lit-title
@@ -186,6 +186,7 @@ button.-lit,
     cursor: pointer
     transition: .2s
     &:hover
+        text-decoration: none
         box-shadow: $controls-hover-shadow
         transition: $short-duration
     &:active
@@ -290,6 +291,9 @@ lit-nav,
         text-decoration: none
         transition: $short-duration
         &:hover
+            @extend .-lit-active
+
+        &.-lit-active
             color: $accent
 
 
@@ -415,42 +419,44 @@ lit-doc,
             right: 6em
             top: 4em
 
-    // 演示控件
-    lit-example
-        @include gap($x: 0,$y: 1rem)
-        @extend lit-vertical
+// 演示控件
+lit-example
+    @include gap($x: 0,$y: 1rem)
+    @extend lit-vertical
 
-        lit-example-btn
-            @extend lit-a
-            @extend .-offset-right
-            display: block
-            margin-bottom: .5em
-            transition: $short-duration
-            &:hover
-                text-decoration: none
+    lit-example-btn
+        @extend lit-a
+        @extend .-offset-right
+        display: block
+        margin-bottom: .5em
+        transition: $short-duration
+        &:hover
+            text-decoration: none
 
-        lit-demo
-            display: block
-            width: 100%
-            border: 1px solid $white
-            transition: $average-duration
-            &.-lit-showcode
-                width: calc(100% - 2em - 2px)
-                padding: 1em
-                border: 1px solid $pale
-                border-bottom: 0
+    lit-demo
+        display: block
+        width: 100%
+        border: 1px solid $white
+        transition: $average-duration
+        &.-lit-showcode
+            width: calc(100% - 2em - 2px)
+            padding: 1em
+            border: 1px solid $pale
+            border-bottom: 0
 
-        pre
-            visibility: hidden
-            height: 0
-            margin: 0
-            border: 1px solid $white
-            opacity: 0
-            transition: $average-duration
-            &.-lit-showcode
-                visibility: visible
-                height: auto
-                width: calc(100% - 2em - 2px)
-                padding: 1em
-                border: 1px solid $pale
-                opacity: 1
+    pre
+        height: 0
+        width: calc(100% - 2em - 2px)
+        padding: 0
+        margin: 0
+        border: 1px solid $pale
+        opacity: 0
+        transition: padding-top $average-duration, padding-bottom $average-duration
+        &.-lit-showcode
+            height: auto
+            padding: 1rem
+            opacity: 1
+
+        code
+            line-height: 2em
+

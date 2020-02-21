@@ -2,19 +2,19 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 16:54:58
+ * @LastEditTime: 2020-02-21 20:34:03
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 16:36:52
+ * @LastEditTime: 2020-02-21 17:46:39
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 16:36:52
+ * @LastEditTime: 2020-02-21 17:46:39
  */
 body.-lit {
   margin: 0;
@@ -108,52 +108,36 @@ lit-horizontal .-offset-top, lit-horizontal .-offset-center, lit-horizontal
 .-lit-horizontal .-offset-stretch,
 .-lit-horizontal lit-horizontal .-offset-stretch, lit-horizontal
 .-lit-vertical .-offset-center,
-.-lit-vertical lit-horizontal .-offset-center, lit-horizontal lit-vertical .-offset-right, lit-vertical lit-horizontal .-offset-right, lit-horizontal lit-doc lit-example .-offset-right, lit-doc lit-example lit-horizontal .-offset-right, lit-horizontal
-.-lit-doc lit-example .-offset-right,
-.-lit-doc lit-example lit-horizontal .-offset-right, lit-horizontal lit-vertical lit-doc lit-example lit-example-btn, lit-vertical lit-doc lit-example lit-horizontal lit-example-btn, lit-horizontal lit-doc lit-example lit-vertical lit-example-btn, lit-doc lit-example lit-vertical lit-horizontal lit-example-btn, lit-horizontal lit-doc lit-example lit-example-btn, lit-doc lit-example lit-horizontal lit-example-btn, lit-horizontal .-lit-doc lit-example lit-example-btn, .-lit-doc lit-example lit-horizontal lit-example-btn, lit-horizontal
+.-lit-vertical lit-horizontal .-offset-center, lit-horizontal lit-vertical .-offset-right, lit-vertical lit-horizontal .-offset-right, lit-horizontal lit-example .-offset-right, lit-example lit-horizontal .-offset-right, lit-horizontal lit-vertical lit-example lit-example-btn, lit-vertical lit-example lit-horizontal lit-example-btn, lit-horizontal lit-example lit-vertical lit-example-btn, lit-example lit-vertical lit-horizontal lit-example-btn, lit-horizontal lit-example lit-example-btn, lit-example lit-horizontal lit-example-btn, lit-horizontal
 .-lit-vertical .-offset-right,
 .-lit-vertical lit-horizontal .-offset-right, lit-horizontal
-.-lit-vertical lit-doc lit-example lit-example-btn,
-.-lit-vertical lit-doc lit-example lit-horizontal lit-example-btn, lit-horizontal lit-doc lit-example
-.-lit-vertical lit-example-btn, lit-doc lit-example
-.-lit-vertical lit-horizontal lit-example-btn, lit-horizontal
-.-lit-vertical
-.-lit-doc lit-example lit-example-btn,
-.-lit-vertical
-.-lit-doc lit-example lit-horizontal lit-example-btn, lit-horizontal
-.-lit-doc lit-example
-.-lit-vertical lit-example-btn,
-.-lit-doc lit-example
+.-lit-vertical lit-example lit-example-btn,
+.-lit-vertical lit-example lit-horizontal lit-example-btn, lit-horizontal lit-example
+.-lit-vertical lit-example-btn, lit-example
 .-lit-vertical lit-horizontal lit-example-btn, lit-horizontal
 .-lit-vertical .-offset-stretch,
 .-lit-vertical lit-horizontal .-offset-stretch,
 .-lit-horizontal .-offset-top, .-lit-horizontal .-offset-center, .-lit-horizontal .-offset-bottom, .-lit-horizontal .-offset-baseline, .-lit-horizontal .-offset-stretch,
 .-lit-horizontal lit-vertical .-offset-right, lit-vertical
 .-lit-horizontal .-offset-right,
-.-lit-horizontal lit-doc lit-example .-offset-right, lit-doc lit-example
+.-lit-horizontal lit-example .-offset-right, lit-example
 .-lit-horizontal .-offset-right,
-.-lit-horizontal
-.-lit-doc lit-example .-offset-right,
-.-lit-doc lit-example
-.-lit-horizontal .-offset-right,
-.-lit-horizontal lit-vertical lit-doc lit-example lit-example-btn, lit-vertical lit-doc lit-example
+.-lit-horizontal lit-vertical lit-example lit-example-btn, lit-vertical lit-example
 .-lit-horizontal lit-example-btn,
-.-lit-horizontal lit-doc lit-example lit-vertical lit-example-btn, lit-doc lit-example lit-vertical
+.-lit-horizontal lit-example lit-vertical lit-example-btn, lit-example lit-vertical
 .-lit-horizontal lit-example-btn,
-.-lit-horizontal lit-doc lit-example lit-example-btn, lit-doc lit-example
-.-lit-horizontal lit-example-btn,
-.-lit-horizontal .-lit-doc lit-example lit-example-btn, .-lit-doc lit-example
+.-lit-horizontal lit-example lit-example-btn, lit-example
 .-lit-horizontal lit-example-btn,
 .-lit-horizontal
 .-lit-vertical .-offset-right,
 .-lit-vertical
 .-lit-horizontal .-offset-right,
 .-lit-horizontal
-.-lit-vertical lit-doc lit-example lit-example-btn,
-.-lit-vertical lit-doc lit-example
+.-lit-vertical lit-example lit-example-btn,
+.-lit-vertical lit-example
 .-lit-horizontal lit-example-btn,
-.-lit-horizontal lit-doc lit-example
-.-lit-vertical lit-example-btn, lit-doc lit-example
+.-lit-horizontal lit-example
+.-lit-vertical lit-example-btn, lit-example
 .-lit-vertical
 .-lit-horizontal lit-example-btn {
   align-self: flex-start;
@@ -183,8 +167,7 @@ lit-horizontal .-offset-stretch,
   align-self: stretch;
 }
 
-lit-vertical, lit-doc lit-example,
-.-lit-doc lit-example,
+lit-vertical, lit-example,
 .-lit-vertical {
   display: flex;
   flex-direction: column;
@@ -192,44 +175,37 @@ lit-vertical, lit-doc lit-example,
   align-items: flex-start;
 }
 
-lit-vertical.-lit-x-left, lit-doc lit-example.-lit-x-left,
-.-lit-doc lit-example.-lit-x-left,
+lit-vertical.-lit-x-left, lit-example.-lit-x-left,
 .-lit-vertical.-lit-x-left {
   align-items: flex-start;
 }
 
-lit-vertical.-lit-x-center, lit-doc lit-example.-lit-x-center,
-.-lit-doc lit-example.-lit-x-center,
+lit-vertical.-lit-x-center, lit-example.-lit-x-center,
 .-lit-vertical.-lit-x-center {
   align-items: center;
 }
 
-lit-vertical.-lit-x-right, lit-doc lit-example.-lit-x-right,
-.-lit-doc lit-example.-lit-x-right,
+lit-vertical.-lit-x-right, lit-example.-lit-x-right,
 .-lit-vertical.-lit-x-right {
   align-items: flex-end;
 }
 
-lit-vertical.-lit-y-top, lit-doc lit-example.-lit-y-top,
-.-lit-doc lit-example.-lit-y-top,
+lit-vertical.-lit-y-top, lit-example.-lit-y-top,
 .-lit-vertical.-lit-y-top {
   justify-content: flex-start;
 }
 
-lit-vertical.-lit-y-center, lit-doc lit-example.-lit-y-center,
-.-lit-doc lit-example.-lit-y-center,
+lit-vertical.-lit-y-center, lit-example.-lit-y-center,
 .-lit-vertical.-lit-y-center {
   justify-content: center;
 }
 
-lit-vertical.-lit-y-bottom, lit-doc lit-example.-lit-y-bottom,
-.-lit-doc lit-example.-lit-y-bottom,
+lit-vertical.-lit-y-bottom, lit-example.-lit-y-bottom,
 .-lit-vertical.-lit-y-bottom {
   justify-content: flex-end;
 }
 
-lit-vertical .-offset-left, lit-doc lit-example .-offset-left,
-.-lit-doc lit-example .-offset-left,
+lit-vertical .-offset-left, lit-example .-offset-left,
 .-lit-vertical .-offset-left {
   align-self: flex-start;
   flex-basis: auto;
@@ -237,26 +213,19 @@ lit-vertical .-offset-left, lit-doc lit-example .-offset-left,
   flex-shrink: 0;
 }
 
-lit-vertical .-offset-center, lit-doc lit-example .-offset-center,
-.-lit-doc lit-example .-offset-center,
+lit-vertical .-offset-center, lit-example .-offset-center,
 .-lit-vertical .-offset-center {
   align-self: center;
 }
 
-lit-vertical .-offset-right, lit-doc lit-example .-offset-right,
-.-lit-doc lit-example .-offset-right, lit-vertical lit-doc lit-example lit-example-btn, lit-doc lit-example lit-vertical lit-example-btn, lit-doc lit-example lit-example-btn, .-lit-doc lit-example lit-example-btn,
+lit-vertical .-offset-right, lit-example .-offset-right, lit-vertical lit-example lit-example-btn, lit-example lit-vertical lit-example-btn, lit-example lit-example-btn,
 .-lit-vertical .-offset-right,
-.-lit-vertical lit-doc lit-example lit-example-btn, lit-doc lit-example
-.-lit-vertical lit-example-btn,
-.-lit-vertical
-.-lit-doc lit-example lit-example-btn,
-.-lit-doc lit-example
+.-lit-vertical lit-example lit-example-btn, lit-example
 .-lit-vertical lit-example-btn {
   align-self: flex-end;
 }
 
-lit-vertical .-offset-stretch, lit-doc lit-example .-offset-stretch,
-.-lit-doc lit-example .-offset-stretch,
+lit-vertical .-offset-stretch, lit-example .-offset-stretch,
 .-lit-vertical .-offset-stretch {
   height: auto !important;
   align-self: stretch;
@@ -266,9 +235,8 @@ lit-header,
 header.-lit-header,
 header.-lit {
   align-items: baseline;
-  background: #7ea399;
+  background: #ffffff;
   padding: .5rem 1rem;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 lit-header lit-title,
@@ -291,8 +259,7 @@ lit-side,
   transition: .5s;
 }
 
-lit-a, lit-doc lit-example lit-example-btn,
-.-lit-doc lit-example lit-example-btn,
+lit-a, lit-example lit-example-btn,
 a.-lit-a,
 lit-ul li.-lit a,
 ul.-lit-ul li.-lit a,
@@ -308,8 +275,7 @@ a.-lit {
   cursor: pointer;
 }
 
-lit-a:hover, lit-doc lit-example lit-example-btn:hover,
-.-lit-doc lit-example lit-example-btn:hover,
+lit-a:hover, lit-example lit-example-btn:hover,
 a.-lit-a:hover,
 lit-ul li.-lit a:hover,
 ul.-lit-ul li.-lit a:hover,
@@ -348,6 +314,7 @@ input[type=button].-lit-btn:hover,
 button.-lit-btn:hover,
 input[type=button].-lit:hover,
 button.-lit:hover {
+  text-decoration: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 }
@@ -463,9 +430,17 @@ lit-tab .-lit-label,
   }
 }
 
-lit-tab .-lit-label.-lit-active,
-.-lit-tab .-lit-label.-lit-active {
-  color: #7ea399;
+lit-tab .-lit-label.-lit-active, lit-tab lit-nav a.-lit-label:hover, lit-nav lit-tab a.-lit-label:hover, lit-tab
+.-lit-nav a.-lit-label:hover,
+.-lit-nav lit-tab a.-lit-label:hover,
+.-lit-tab .-lit-label.-lit-active,
+.-lit-tab lit-nav a.-lit-label:hover, lit-nav
+.-lit-tab a.-lit-label:hover,
+.-lit-tab
+.-lit-nav a.-lit-label:hover,
+.-lit-nav
+.-lit-tab a.-lit-label:hover {
+  color: #ffffff;
 }
 
 lit-nav,
@@ -484,8 +459,10 @@ lit-nav a,
   transition: 0.3s;
 }
 
-lit-nav a:hover,
-.-lit-nav a:hover {
+lit-nav a.-lit-active, lit-nav a:hover, lit-nav
+.-lit-nav a:hover,
+.-lit-nav lit-nav a:hover,
+.-lit-nav a.-lit-active, .-lit-nav a:hover {
   color: #795548;
 }
 
@@ -693,55 +670,54 @@ lit-doc,
   }
 }
 
-lit-doc lit-example,
-.-lit-doc lit-example {
+lit-example {
   margin: 1rem 0;
 }
 
-lit-doc lit-example lit-example-btn,
-.-lit-doc lit-example lit-example-btn {
+lit-example lit-example-btn {
   display: block;
   margin-bottom: .5em;
   transition: 0.3s;
 }
 
-lit-doc lit-example lit-example-btn:hover,
-.-lit-doc lit-example lit-example-btn:hover {
+lit-example lit-example-btn:hover {
   text-decoration: none;
 }
 
-lit-doc lit-example lit-demo,
-.-lit-doc lit-example lit-demo {
+lit-example lit-demo {
   display: block;
   width: 100%;
   border: 1px solid #ffffff;
   transition: 0.5s;
 }
 
-lit-doc lit-example lit-demo.-lit-showcode,
-.-lit-doc lit-example lit-demo.-lit-showcode {
+lit-example lit-demo.-lit-showcode {
   width: calc(100% - 2em - 2px);
   padding: 1em;
   border: 1px solid #f2f2f2;
   border-bottom: 0;
 }
 
-lit-doc lit-example pre,
-.-lit-doc lit-example pre {
-  visibility: hidden;
+lit-example pre {
   height: 0;
+  width: calc(100% - 2em - 2px);
+  padding: 0;
   margin: 0;
-  border: 1px solid #ffffff;
+  border: 1px solid #f2f2f2;
   opacity: 0;
-  transition: 0.5s;
+  transition: padding-top 0.5s, padding-bottom 0.5s;
 }
 
-lit-doc lit-example pre.-lit-showcode,
-.-lit-doc lit-example pre.-lit-showcode {
-  visibility: visible;
+lit-example pre.-lit-showcode {
   height: auto;
-  width: calc(100% - 2em - 2px);
-  padding: 1em;
-  border: 1px solid #f2f2f2;
+  padding: 1rem;
   opacity: 1;
+}
+
+lit-example pre code, lit-example
+.-lit-typo pre code,
+.-lit-typo lit-example pre code, lit-example lit-doc pre code, lit-doc lit-example pre code, lit-example
+.-lit-doc pre code,
+.-lit-doc lit-example pre code {
+  line-height: 2em;
 }

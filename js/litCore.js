@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-13 13:10:05
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 16:44:13
+ * @LastEditTime: 2020-02-21 20:31:08
  */
 
 const jsKeywords = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
@@ -46,6 +46,12 @@ export let lit = {
             console.log('出错元素:', element)
             throw new ReferenceError(`元素不存在为 "${inputClass}" 的 Class`)
         }
+    },
+    toggleClass: (element, inputClass) => {
+        if (!lit.hasClass(element, inputClass))
+            lit.addClass(element, inputClass)
+        else
+            lit.removeClass(element, inputClass)
     },
 
     // 联动驱动方法
@@ -101,10 +107,8 @@ class litCore { // TODO: 核心库，需要扩充
             this.toggleClass = (inputClass) => {
                 if (!this.hasClass(inputClass))
                     this.addClass(inputClass)
-                else {
-                    console.log("移除", inputClass)
+                else
                     this.removeClass(inputClass)
-                }
             }
             this.replaceClass = (changed, change) => { // TODO: 不满足条件时应提醒
                 if (this.hasClass(changed) && !this.hasClass(change)) {
@@ -189,17 +193,17 @@ export const CodeBox = class CodeBox extends litCore {
 export const Example = class Example extends litCore {
     constructor(selector = "lit-example") {
         super(selector)
-        let demo = new litCore("lit-example lit-demo")
-        let pre = new litCore("lit-example pre")
+        let demo = this.element.querySelector("lit-demo")
+        let pre = this.element.querySelector("pre")
 
         let exampleBtn = document.createElement("lit-example-btn")
         let exampleBtnText = document.createTextNode("展开")
         exampleBtn.appendChild(exampleBtnText)
-        this.element.insertBefore(exampleBtn, demo.element)
+        this.element.insertBefore(exampleBtn, demo)
 
         exampleBtn.addEventListener("click", () => {
-            demo.toggleClass("-lit-showcode")
-            pre.toggleClass("-lit-showcode")
+            lit.toggleClass(demo ,"-lit-showcode")
+            lit.toggleClass(pre ,"-lit-showcode")
         })
     }
 }
