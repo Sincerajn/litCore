@@ -28,12 +28,15 @@
     <lit-doc>
       <h1>lit.css 交互式演示文档</h1>
       <p>
-        lit.css 使用诸多现代化开发理念与技术，迅速构建响应式网页。支持通过类库更便捷的修改样式，同时提供封装控件直接使用。
+        <strong>lit.css</strong> 使用诸多现代化开发理念与技术，迅速构建响应式网页。支持通过类库更便捷的修改样式，同时提供封装控件直接使用。
       </p>
-      <h6>按钮</h6>
       <p>
         如若定义按钮控件，可以通过 <code>lit-btn</code> 标签定义，也可以为 <code>button</code> 元素添加 <code>-lit-btn</code> 类获得样式，对于
         <code>button</code> 这种具有明显语义化的元素，也可直接添加 <code>-lit</code> 类获得相应样式。
+      </p>
+      <h3>按钮</h3>
+      <p>
+        为 <code>a</code>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit-btn</code> 类以获得按钮样式。
       </p>
       <lit-example>
         <lit-demo>
@@ -44,6 +47,14 @@
         <pre><code>&lt;a href="javascript:;" class="-lit-btn"&gt;按钮&lt;/a&gt;
 &lt;input type="button" class="-lit-btn" value="按钮"&gt;
 &lt;button class="-lit-btn"&gt;按钮&lt;/button&gt;</code></pre>
+      </lit-example>
+      <h3>输入框</h3>
+      <p>为 <code>input[type = text]</code> 元素添加 <code>.-lit-input</code> 类，获得输入框样式。</p>
+      <lit-example>
+        <lit-demo>
+          <input class="-lit-input" type="text">
+        </lit-demo>
+        <pre><code>&lt;input class="-lit-input" type="text"&gt;</code></pre>
       </lit-example>
       <p>
         除了传统的 12 分网格布局外，<strong>lit.css</strong> 提供了线性布局来布置元素，通过 <code>lit-horizontal</code> 标签定义水平布局，通过

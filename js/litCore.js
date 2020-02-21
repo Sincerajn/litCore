@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-13 13:10:05
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 20:31:08
+ * @LastEditTime: 2020-02-21 21:46:00
  */
 
 const jsKeywords = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
@@ -190,20 +190,40 @@ export const CodeBox = class CodeBox extends litCore {
         this.element.innerHTML = codeFormat
     }
 }
-export const Example = class Example extends litCore {
-    constructor(selector = "lit-example") {
-        super(selector)
-        let demo = this.element.querySelector("lit-demo")
-        let pre = this.element.querySelector("pre")
+export const Example = class Example {
+    constructor() {
+        // let demo = this.element.querySelector("lit-demo")
+        // let pre = this.element.querySelector("pre")
 
-        let exampleBtn = document.createElement("lit-example-btn")
-        let exampleBtnText = document.createTextNode("展开")
-        exampleBtn.appendChild(exampleBtnText)
-        this.element.insertBefore(exampleBtn, demo)
+        // let exampleBtn = document.createElement("lit-example-btn")
+        // let exampleBtnText = document.createTextNode("展开")
+        // exampleBtn.appendChild(exampleBtnText)
+        // this.element.insertBefore(exampleBtn, demo)
 
-        exampleBtn.addEventListener("click", () => {
-            lit.toggleClass(demo ,"-lit-showcode")
-            lit.toggleClass(pre ,"-lit-showcode")
+        // exampleBtn.addEventListener("click", () => {
+        //     lit.toggleClass(demo ,"-lit-showcode")
+        //     lit.toggleClass(pre ,"-lit-showcode")
+        // })
+
+        let examples = document.querySelectorAll("lit-example")
+        examples.forEach((example) => {
+            let demo = example.querySelector("lit-demo")
+            let pre = example.querySelector("pre")
+
+            let exampleBtn = document.createElement("lit-example-btn")
+            let exampleBtnText = document.createTextNode("</>")
+            exampleBtn.appendChild(exampleBtnText)
+            example.insertBefore(exampleBtn, demo)
+            
+            let exampleLabel = document.createElement("lit-example-label")
+            let exampleLabelText = document.createTextNode("Example")
+            exampleLabel.appendChild(exampleLabelText)
+            example.insertBefore(exampleLabel, demo)
+
+            exampleBtn.addEventListener("click", () => {
+                lit.toggleClass(demo, "-lit-showcode")
+                lit.toggleClass(pre, "-lit-showcode")
+            })
         })
     }
 }

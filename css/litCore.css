@@ -2,19 +2,19 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 20:34:03
+ * @LastEditTime: 2020-02-21 22:15:01
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 17:46:39
+ * @LastEditTime: 2020-02-21 21:42:08
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 17:46:39
+ * @LastEditTime: 2020-02-21 21:42:08
  */
 body.-lit {
   margin: 0;
@@ -516,25 +516,25 @@ lit-typo h1, lit-typo h2, lit-typo
 lit-typo h2,
 .-lit-typo h2, lit-doc h2,
 .-lit-doc h2 {
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
 
 lit-typo h3,
 .-lit-typo h3, lit-doc h3,
 .-lit-doc h3 {
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 
 lit-typo h4,
 .-lit-typo h4, lit-doc h4,
 .-lit-doc h4 {
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 lit-typo h5,
 .-lit-typo h5, lit-doc h5,
 .-lit-doc h5 {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 lit-typo h6,
@@ -592,8 +592,10 @@ lit-typo code, lit-typo pre code, lit-typo
 .-lit-typo code, lit-doc pre code, lit-doc pre
 .-lit-doc code, .-lit-doc pre code {
   color: #f44336;
+  background: rgba(0, 0, 0, 0.04);
   font-family: Consolas, monospace;
-  font-weight: bold;
+  padding: 0 .4em;
+  border-radius: 2px;
 }
 
 lit-typo pre code, lit-typo
@@ -602,7 +604,8 @@ lit-typo pre code, lit-typo
 .-lit-doc pre code,
 .-lit-doc lit-typo pre code, lit-doc pre code, .-lit-typo pre code, lit-doc pre code, .-lit-doc pre code {
   color: #1d1d1d;
-  font-weight: normal;
+  background: none;
+  padding: 0;
 }
 
 lit-typo hr,
@@ -645,37 +648,47 @@ lit-typo img,
 lit-doc,
 .-lit-doc {
   max-width: 40em;
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 2em;
-  margin-bottom: 4em;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
   transition: 0.5s;
 }
 
 @media screen and (min-width: 425px) {
   lit-doc,
   .-lit-doc {
-    margin-left: 4em;
-    margin-right: 4em;
-    margin-top: 3em;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: 3rem;
   }
 }
 
 @media screen and (min-width: 768px) {
   lit-doc,
   .-lit-doc {
-    margin-left: 6em;
-    margin-right: 6em;
-    margin-top: 4em;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
   }
 }
 
 lit-example {
-  margin: 1rem 0;
+  margin: 0 0 2rem;
+}
+
+lit-example lit-example-label {
+  display: inline-block;
+  position: absolute;
+  font-size: .8em;
+  color: rgba(0, 0, 0, 0.48);
+  font-weight: bold;
 }
 
 lit-example lit-example-btn {
   display: block;
+  font-family: Consolas, monospace;
   margin-bottom: .5em;
   transition: 0.3s;
 }

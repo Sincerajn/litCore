@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 20:34:03
+ * @LastEditTime: 2020-02-21 22:15:01
  */
 
 @import "_global" // 全局样式
@@ -329,16 +329,16 @@ lit-typo,
         margin: 0 0 1em
     h2
         @extend h1
-        font-size: 1.8em
+        font-size: 1.4em
     h3
         @extend h1
-        font-size: 1.6em
+        font-size: 1.3em
     h4
         @extend h1
-        font-size: 1.4em
+        font-size: 1.2em
     h5
         @extend h1
-        font-size: 1.2em
+        font-size: 1.1em
     h6
         @extend h1
         font-size: 1em
@@ -361,14 +361,17 @@ lit-typo,
         border-radius: 2px
     code
         color: $material-red
+        background: rgba(0, 0, 0, .04)
         font:
             family: $monospace
-            weight: bold
+        padding: 0 .4em
+        border-radius: 2px
     pre
         code
             @extend code
             color: $black
-            font-weight: normal
+            background: none
+            padding: 0
     hr
         @extend lit-divider
         border: 0
@@ -402,32 +405,41 @@ lit-doc,
     @extend .-lit-typo
     max-width: 40em
     margin:
-        left: 1em
-        right: 1em
-        top: 2em
-        bottom: 4em
+        left: 1rem
+        right: 1rem
+        top: 2rem
+        bottom: 4rem
     transition: $average-duration
     // 平板尺寸
     @media screen and ( min-width: 425px)
         margin:
-            left: 4em
-            right: 4em
-            top: 3em
+            left: 4rem
+            right: 4rem
+            top: 3rem
     @media screen and ( min-width: 768px)
         margin:
-            left: 6em
-            right: 6em
-            top: 4em
+            left: 6rem
+            right: 6rem
+            top: 4rem
+            bottom: 8rem
 
 // 演示控件
 lit-example
-    @include gap($x: 0,$y: 1rem)
     @extend lit-vertical
+    margin: 0 0 2rem
+
+    lit-example-label
+        display: inline-block
+        position: absolute
+        font-size: .8em
+        color: $lighter-gray
+        font-weight: bold
 
     lit-example-btn
         @extend lit-a
         @extend .-offset-right
         display: block
+        font-family: $monospace
         margin-bottom: .5em
         transition: $short-duration
         &:hover
@@ -459,4 +471,3 @@ lit-example
 
         code
             line-height: 2em
-
