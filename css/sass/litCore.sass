@@ -1,0 +1,456 @@
+/*
+ * @Author: Sincerajn
+ * @Date: 2020-02-20 13:40:11
+ * @LastEditors: Sincerajn
+ * @LastEditTime: 2020-02-21 16:49:02
+ */
+
+@import "_global" // 全局样式
+@import "_modify" // 修饰样式
+
+
+// 基础定义
+body.-lit
+    margin: 0
+    color: $text-normal-color
+    font:
+        size: 16px
+        family: $sans
+
+
+// 标题修饰
+lit-title,
+.-lit-title
+    font:
+        size: 1rem
+        weight: bold
+
+
+// 水平两侧布置栏
+lit-level,
+.-lit-level
+    display: flex
+    justify-content: space-between
+    align-items: center
+    // background: $primary
+
+    .-lit-left,
+    .-lit-right
+        display: flex
+        justify-content: start
+        align-items: center
+        flex-basis: auto
+        flex-grow: 0
+        flex-shrink: 0
+
+
+// 水平布局
+lit-horizontal,
+.-lit-horizontal
+    display: flex
+    flex-direction: row
+    justify-self: flex-start
+    align-items: flex-start
+
+    &.-lit-x-left
+        justify-content: flex-start
+    &.-lit-x-center
+        justify-content: center
+    &.-lit-x-right
+        justify-content: flex-end
+    &.-lit-y-top
+        align-items: flex-start
+    &.-lit-y-center
+        align-items: center
+    &.-lit-y-bottom
+        align-items: flex-end
+    &.-lit-y-baseline
+        align-items: baseline
+
+    .-offset-top
+        align-self: flex-start
+        flex-basis: auto
+        flex-grow: 0
+        flex-shrink: 0
+    .-offset-center
+        @extend .-offset-top
+        align-self: center
+    .-offset-bottom
+        @extend .-offset-top
+        align-self: flex-end
+    .-offset-baseline
+        @extend .-offset-top
+        align-self: baseline
+    .-offset-stretch
+        @extend .-offset-top
+        height: auto !important
+        align-self: stretch
+
+
+// 垂直布局
+lit-vertical,
+.-lit-vertical
+    display: flex
+    flex-direction: column
+    justify-self: flex-start
+    align-items: flex-start
+
+    &.-lit-x-left
+        align-items: flex-start
+    &.-lit-x-center
+        align-items: center
+    &.-lit-x-right
+        align-items: flex-end
+    &.-lit-y-top
+        justify-content: flex-start
+    &.-lit-y-center
+        justify-content: center
+    &.-lit-y-bottom
+        justify-content: flex-end
+
+    .-offset-left
+        align-self: flex-start
+        flex-basis: auto
+        flex-grow: 0
+        flex-shrink: 0
+    .-offset-center
+        @extend .-offset-top
+        align-self: center
+    .-offset-right
+        @extend .-offset-top
+        align-self: flex-end
+    .-offset-stretch
+        @extend .-offset-top
+        height: auto !important
+        align-self: stretch
+
+
+// 顶栏
+lit-header,
+header.-lit-header,
+header.-lit
+    @extend .-lit-level
+    align-items: baseline
+    background: $primary
+    padding: .5rem 1rem
+    box-shadow: $header-normal-shadow
+        
+    lit-title,
+    .-lit-title
+        font:
+            size: 1.5em
+            family: $serif
+        margin: 0 1rem
+
+
+// 侧边栏
+lit-side,
+.-lit-side
+    display: block
+    width: 30vw
+    height: calc(100vh - 64px)
+    background: $morandi-yello
+    transition: .5s
+
+
+// 链接
+lit-a,
+a.-lit-a,
+a.-lit
+    color: $accent
+    font-weight: bold
+    text-decoration: none
+    cursor: pointer
+    &:hover
+        text-decoration: underline
+
+
+// 按钮
+lit-btn,
+a.-lit-btn,
+input[type=button].-lit-btn,
+button.-lit-btn,
+input[type=button].-lit,
+button.-lit,
+    font: 
+        size: 1rem
+        weight: normal
+    text-decoration: none
+    color: inherit
+    background: $btn-normal-color
+    padding: .5em 1em
+    border: none
+    border-radius: 2px
+    outline: none
+    box-shadow: $controls-normal-shadow
+    cursor: pointer
+    transition: .2s
+    &:hover
+        box-shadow: $controls-hover-shadow
+        transition: $short-duration
+    &:active
+        box-shadow: none
+
+    &.-lit-icon
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 48px
+        height: 48px
+        background: $transparent
+        padding: 0
+        border-radius: 50%
+        box-shadow: none
+        &:hover
+            box-shadow: $controls-hover-shadow
+        &:active
+            box-shadow: none
+
+
+// 单行输入框
+lit-input,
+input[type=text].-lit-input,
+input[type=text].-lit,
+    font: 
+        size: inherit
+        family: $serif
+    padding: $text-baesd
+    border: none
+    box-shadow: $controls-normal-shadow
+    outline: none
+    transition: $short-duration
+    &:hover
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .3)
+    &:focus
+        outline: 2px solid $accent
+
+
+// 复选框
+lit-checkbox,
+input[type=checkbox].-lit-checkbox,
+input[type=checkbox].-lit
+    // TODO: 由 JavaScript 驱动
+
+
+// 滑块
+lit-range,
+input[type=range].-lit-range,
+input[type=range].-lit
+    // TODO: 由 JavaScript 驱动
+
+
+// 列表
+lit-ul,
+ul.-lit-ul,
+ul.-lit,
+    display: flex
+    flex-direction: column
+    padding: 0
+    li.-lit
+        list-style: none
+        padding: $text-baesd
+        &:hover
+            background: rgba(0, 0, 0, .04)
+        a
+            @extend .-lit-a
+
+
+// Tab 选项卡
+lit-tab,
+.-lit-tab
+    display: flex
+
+    .-lit-label
+        color: $gray
+        flex-grow: 1
+        padding: 1em 2em
+        text-align: center
+        cursor: pointer
+        @media screen and ( min-width: 425px)
+            flex-grow: 0
+
+    .-lit-label.-lit-active
+        color: $primary
+
+
+    display: flex
+
+
+// 导航栏
+lit-nav,
+.-lit-nav
+    display: flex
+    font-weight: bold
+    align-items: center
+    margin: 0 1rem
+
+    a
+        color: inherit
+        padding: $text-baesd
+        text-decoration: none
+        transition: $short-duration
+        &:hover
+            color: $accent
+
+
+// 分割线
+lit-divider,
+.-lit-divider
+    display: block
+    width: calc(100% - 2rem)
+    height: 1px
+    background: rgba(0,0,0,.12)
+    @include gap($x: .5em, $y: 1em)
+
+
+// Dialog
+lit-dialog,
+.-lit-dialog
+    // TODO: 由 Javascript 驱动
+    .-lit-title
+    .-lit-content
+    .-lit-actions
+
+
+// 排版优化
+lit-typo,
+.-lit-typo
+    display: block
+
+    h1
+        font:
+            size: 2rem
+            weight: bold
+        line-height: 1.5em
+        margin: 0 0 1em
+    h2
+        @extend h1
+        font-size: 1.8em
+    h3
+        @extend h1
+        font-size: 1.6em
+    h4
+        @extend h1
+        font-size: 1.4em
+    h5
+        @extend h1
+        font-size: 1.2em
+    h6
+        @extend h1
+        font-size: 1em
+    p
+        line-height: 1.5em
+        text-align: justify
+        margin: 1em 0
+        &:first-child
+            margin-top: 0
+        &:last-child
+            margin-bottom: 0
+    b,
+    strong
+        font-weight: bold
+    kbd
+        color: $white
+        background: $black
+        font-size: .8rem
+        padding: .125em .25em
+        border-radius: 2px
+    code
+        color: $material-red
+        font:
+            family: $monospace
+            weight: bold
+    pre
+        code
+            @extend code
+            color: $black
+            font-weight: normal
+    hr
+        @extend lit-divider
+        border: 0
+    blockquote
+        font:
+            size: .9rem
+            family: $serif
+        margin: 1rem 0
+        padding:
+            left: calc(2rem - 6px)
+            right: 2rem
+            top: 1rem
+            bottom: 1rem
+        border:
+            left: 6px solid #cbcbcb;
+        background: $pale
+    a
+        @extend .-lit-a
+    ul,
+    ol
+        padding-left: 2em
+        margin: 1rem 0
+    img
+        max-width: 100%
+        margin: 0 auto
+
+// 文档
+lit-doc,
+.-lit-doc
+    // 手机尺寸
+    @extend .-lit-typo
+    max-width: 40em
+    margin:
+        left: 1em
+        right: 1em
+        top: 2em
+        bottom: 4em
+    transition: $average-duration
+    // 平板尺寸
+    @media screen and ( min-width: 425px)
+        margin:
+            left: 4em
+            right: 4em
+            top: 3em
+    @media screen and ( min-width: 768px)
+        margin:
+            left: 6em
+            right: 6em
+            top: 4em
+
+    // 演示
+    lit-example
+        @include gap($x: 0,$y: 1rem)
+        @extend lit-vertical
+
+        lit-example-btn
+            @extend lit-a
+            @extend .-offset-right
+            display: block
+            margin-bottom: .5em
+            transition: $short-duration
+            &:hover
+                text-decoration: none
+
+        lit-demo
+            display: block
+            width: 100%
+            border: 1px solid $white
+            transition: $average-duration
+            &.-lit-showcode
+                width: calc(100% - 2em - 2px)
+                padding: 1em
+                border: 1px solid $pale
+                border-bottom: 0
+
+        pre
+            visibility: hidden
+            height: 0
+            margin: 0
+            border: 1px solid $white
+            opacity: 0
+            transition: $average-duration
+            &.-lit-showcode
+                visibility: visible
+                height: auto
+                width: calc(100% - 2em - 2px)
+                padding: 1em
+                border: 1px solid $pale
+                opacity: 1
