@@ -2,25 +2,25 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 22:15:01
+ * @LastEditTime: 2020-02-22 02:09:46
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 21:42:08
+ * @LastEditTime: 2020-02-21 22:38:34
  */
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:49:07
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 21:42:08
+ * @LastEditTime: 2020-02-21 22:38:34
  */
 body.-lit {
   margin: 0;
   color: rgba(0, 0, 0, 0.8);
   font-size: 16px;
-  font-family: Roboto, "Noto Sans SC", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Roboto, "Noto Sans SC", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 lit-title,
@@ -363,7 +363,8 @@ button.-lit.-lit-icon:active {
   box-shadow: none;
 }
 
-lit-input,
+lit-input, textarea.-lit-textarea,
+textarea.-lit,
 input[type=text].-lit-input,
 input[type=text].-lit {
   font-size: inherit;
@@ -375,16 +376,29 @@ input[type=text].-lit {
   transition: 0.3s;
 }
 
-lit-input:hover,
+lit-input:hover, textarea.-lit-textarea:hover,
+textarea.-lit:hover,
 input[type=text].-lit-input:hover,
 input[type=text].-lit:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-lit-input:focus,
+lit-input:focus, textarea.-lit-textarea:focus,
+textarea.-lit:focus,
 input[type=text].-lit-input:focus,
 input[type=text].-lit:focus {
   outline: 2px solid #795548;
+}
+
+textarea.-lit-textarea,
+textarea.-lit {
+  width: calc(100% - 2rem);
+  max-width: calc(100% - 2rem);
+  min-height: 3em;
+  text-align: justify;
+  padding: 1rem;
+  overflow-y: hidden;
+  resize: none;
 }
 
 lit-ul,

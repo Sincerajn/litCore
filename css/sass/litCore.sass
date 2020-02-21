@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-21 22:15:01
+ * @LastEditTime: 2020-02-22 02:09:46
  */
 
 @import "_global" // 全局样式
@@ -224,6 +224,19 @@ input[type=text].-lit,
         box-shadow: 0 2px 6px rgba(0, 0, 0, .3)
     &:focus
         outline: 2px solid $accent
+
+
+// 多行输入框
+textarea.-lit-textarea,
+textarea.-lit
+    @extend lit-input
+    width: calc(100% - 2rem)
+    max-width: calc(100% - 2rem)
+    min-height: 3em
+    text-align: justify
+    padding: 1rem
+    overflow-y: hidden
+    resize: none
 
 
 // 复选框
