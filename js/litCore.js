@@ -1,8 +1,14 @@
 /*
  * @Author: Sincerajn
+ * @Date: 2020-02-21 16:43:13
+ * @LastEditors: Sincerajn
+ * @LastEditTime: 2020-02-22 17:14:11
+ */
+/*
+ * @Author: Sincerajn
  * @Date: 2020-02-13 13:10:05
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 01:58:45
+ * @LastEditTime: 2020-02-22 12:58:08
  */
 
 const jsKeywords = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
@@ -219,26 +225,15 @@ class Textarea {
     constructor() {
         let textareas = document.querySelectorAll("textarea.-lit-textarea")
         textareas.forEach((textarea) => {
-            const style = window.getComputedStyle(textarea) // 获取元素实时渲染对象
-            const paddingTop = parseInt(style.getPropertyValue("padding-top").replace("px", ""))
-            const paddingBottom = parseInt(style.getPropertyValue("padding-bottom").replace("px", ""))
+            const style = window.getComputedStyle(textarea)
+            const paddingTop = parseFloat(style.paddingTop.replace("px", ""))
+            const paddingBottom = parseFloat(style.paddingBottom.replace("px", ""))
             const padding = paddingTop + paddingBottom
 
-            let innerHeight = Math.round(parseFloat(style.height.replace("px", "")))
-            let height = innerHeight + padding
-
-            function autoSize() { // FIXME: 需要节流，当 scrollHeight 不变时不改变 style.height 值，但需 auto 处理删除
-                innerHeight = Math.round(parseFloat(style.height.replace("px", ""))) // 实时计算元素高度
-                height = innerHeight + padding
-                textarea.style.height = "auto" // 处理删除触发的高度变化
-                // if (height != textarea.scrollHeight) {
-                //     textarea.style.height = `${textarea.scrollHeight - padding}px`
-                // }
+            textarea.addEventListener("input", () => {
+                textarea.style.height = "auto" // 处理删除触发缩短高度
                 textarea.style.height = `${textarea.scrollHeight - padding}px`
-            }
-
-            autoSize()
-            textarea.addEventListener("input", autoSize)
+            })
         })
     }
 }

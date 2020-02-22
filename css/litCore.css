@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 02:09:46
+ * @LastEditTime: 2020-02-22 17:05:44
  */
 /*
  * @Author: Sincerajn
@@ -364,7 +364,7 @@ button.-lit.-lit-icon:active {
 }
 
 lit-input, textarea.-lit-textarea,
-textarea.-lit,
+textarea.-lit, lit-textarea,
 input[type=text].-lit-input,
 input[type=text].-lit {
   font-size: inherit;
@@ -377,14 +377,14 @@ input[type=text].-lit {
 }
 
 lit-input:hover, textarea.-lit-textarea:hover,
-textarea.-lit:hover,
+textarea.-lit:hover, lit-textarea:hover,
 input[type=text].-lit-input:hover,
 input[type=text].-lit:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 lit-input:focus, textarea.-lit-textarea:focus,
-textarea.-lit:focus,
+textarea.-lit:focus, lit-textarea:focus,
 input[type=text].-lit-input:focus,
 input[type=text].-lit:focus {
   outline: 2px solid #795548;
@@ -393,12 +393,18 @@ input[type=text].-lit:focus {
 textarea.-lit-textarea,
 textarea.-lit {
   width: calc(100% - 2rem);
-  max-width: calc(100% - 2rem);
   min-height: 3em;
   text-align: justify;
   padding: 1rem;
   overflow-y: hidden;
   resize: none;
+}
+
+lit-textarea {
+  display: block;
+  padding: 1rem;
+  min-height: 3em;
+  -webkit-user-modify: read-write-plaintext-only;
 }
 
 lit-ul,

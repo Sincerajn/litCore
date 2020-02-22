@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 02:09:46
+ * @LastEditTime: 2020-02-22 17:05:44
  */
 
 @import "_global" // 全局样式
@@ -231,13 +231,18 @@ textarea.-lit-textarea,
 textarea.-lit
     @extend lit-input
     width: calc(100% - 2rem)
-    max-width: calc(100% - 2rem)
     min-height: 3em
     text-align: justify
     padding: 1rem
     overflow-y: hidden
     resize: none
 
+lit-textarea
+    @extend lit-input
+    display: block
+    padding: 1rem
+    min-height: 3em
+    -webkit-user-modify: read-write-plaintext-only
 
 // 复选框
 lit-checkbox,
