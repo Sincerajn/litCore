@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-21 16:43:13
  * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 17:14:11
+ * @LastEditTime: 2020-02-22 18:50:24
  */
 /*
  * @Author: Sincerajn
@@ -239,5 +239,7 @@ class Textarea {
 }
 
 
-let ex = new Example
-let textarea = new Textarea
+document.addEventListener("DOMContentLoaded", () => {
+    let example = new Example
+    let textarea = new Textarea
+})
