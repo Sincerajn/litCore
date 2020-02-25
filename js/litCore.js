@@ -14,50 +14,98 @@
 const jsKeywords = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
 const jdObjects = ["Array", "Date", "Math", "Number", "Object", "String", "Boolean", "Map", "Set", "Regexp", "Promise"]
 
-export let lit = {
+let lit = {
     // 传回 litCore 对象
-    core: (value) => {
-        return new litCore(value)
-    },
+    // core: (value) => {
+    //     return new litCore(value)
+    // },
 
     // 工具库
     unique: (array) => { // 数组去重
         return [...new Set(array)]
     },
+
+    createElement: (tagName, text) => {
+        if (tagName) {
+            let element = document.createElement(tagName)
+            if (typeof text === "string") {
+                let texeNode = document.createTextNode(text)
+                element.appendChild(texeNode)
+            }
+            return element
+        }
+        else
+            return undefined
+    },
+    addElementInsertBefore: (container, element) => {
+        if (container instanceof HTMLElement && element instanceof HTMLElement)
+            container.insertBefore(element, container.querySelector(":first-child"))
+        else
+            return undefined
+    },
     deleteElement: (element) => {
         element.parentElement.removeChild(element)
     },
-    hasClass: (element, inputClass) => {
-        return element.className.includes(inputClass)
+
+    hasClass: (elements, inputClass) => {
+        // if (elements instanceof HTMLElement)
+        return elements.className.includes(inputClass)
+        // else
+        // throw "未传入 HTMLElement"
     },
-    addClass: (element, inputClass) => {
-        if (!lit.hasClass(element, inputClass))
-            element.className += ` ${inputClass}`
-        else {
-            console.log('出错元素:', element)
-            throw new ReferenceError(`元素已存在为 "${inputClass}" 的 Class`)
+    addClass: (elements, inputClass) => {
+        if (elements instanceof HTMLElement) {
+            if (!lit.hasClass(elements, inputClass))
+                elements.className += ` ${inputClass}`
+            else
+                throw `${elements.localName} 已存在为 ${inputClass} 的 class`
         }
-    },
-    removeClass: (element, inputClass) => {
-        let className = ""
-        if (lit.hasClass(element, ` ${inputClass}`)) { // 待查 class 前有空格的情况
-            className = element.className.replace(` ${inputClass}`, "")
-            element.className = className
+        else if (elements instanceof NodeList) {
+            elements.forEach(e => {
+                lit.addClass(e, inputClass)
+            })
         }
-        else if (lit.hasClass(element, inputClass)) { // 待查 class 前无空格的情况
-            className = element.className.replace(inputClass, "")
-            element.className = className
-        }
-        else {
-            console.log('出错元素:', element)
-            throw new ReferenceError(`元素不存在为 "${inputClass}" 的 Class`)
-        }
-    },
-    toggleClass: (element, inputClass) => {
-        if (!lit.hasClass(element, inputClass))
-            lit.addClass(element, inputClass)
         else
-            lit.removeClass(element, inputClass)
+            throw "未传入任何元素"
+    },
+    removeClass: (elements, inputClass) => {
+        if (elements instanceof HTMLElement) {
+            let className = ""
+            if (lit.hasClass(elements, ` ${inputClass}`)) { // 待查 class 前有空格的情况
+                className = elements.className.replace(` ${inputClass}`, "")
+                elements.className = className
+            }
+            else if (lit.hasClass(elements, inputClass)) { // 待查 class 前无空格的情况
+                className = elements.className.replace(inputClass, "")
+                elements.className = className
+            }
+            else {
+                console.log('出错元素:', elements)
+                throw new ReferenceError(`元素不存在为 "${inputClass}" 的 Class`)
+            }
+        }
+        else if (elements instanceof NodeList) {
+            elements.forEach(e => {
+                lit.removeClass(e, inputClass)
+            })
+        }
+        else
+            throw "未传入任何元素"
+    },
+    toggleClass: (elements, inputClass) => {
+        if (elements instanceof HTMLElement) {
+            if (!lit.hasClass(elements, inputClass))
+                lit.addClass(elements, inputClass)
+            else
+                lit.removeClass(elements, inputClass)
+        }
+        else if (elements instanceof NodeList) {
+            elements.forEach(e => {
+                lit.toggleClass(e, inputClass)
+            })
+        }
+        else
+            throw "未传入任何元素"
     },
 
     // 联动驱动方法
@@ -196,30 +244,55 @@ export const CodeBox = class CodeBox extends litCore {
         this.element.innerHTML = codeFormat
     }
 }
-export const Example = class Example {
-    constructor() {
-        let examples = document.querySelectorAll("lit-example")
-        examples.forEach((example) => {
-            let demo = example.querySelector("lit-demo")
-            let pre = example.querySelector("pre")
 
-            let exampleBtn = document.createElement("lit-example-btn")
-            let exampleBtnText = document.createTextNode("</>")
-            exampleBtn.appendChild(exampleBtnText)
-            example.insertBefore(exampleBtn, demo)
+// 示例控件
+function RenderExample() {
+    let examples = document.querySelectorAll("lit-example")
 
-            let exampleLabel = document.createElement("lit-example-label")
-            let exampleLabelText = document.createTextNode("Example")
-            exampleLabel.appendChild(exampleLabelText)
-            example.insertBefore(exampleLabel, demo)
+    examples.forEach(example => {
+        let demo = example.querySelector("lit-demo")
+        let pre = example.querySelector("pre")
 
-            exampleBtn.addEventListener("click", () => {
-                lit.toggleClass(demo, "-lit-showcode")
-                lit.toggleClass(pre, "-lit-showcode")
+        // 添加按钮
+        let exampleBtn = lit.createElement("lit-example-btn", "</>")
+        lit.addElementInsertBefore(example, exampleBtn)
+
+        // 添加标签
+        let exampleLabel = lit.createElement("lit-example-label", "Example")
+        lit.addElementInsertBefore(example, exampleLabel)
+
+        exampleBtn.addEventListener("click", () => {
+            lit.toggleClass(demo, "-lit-showcode")
+            lit.toggleClass(pre, "-lit-showcode")
+        })
+    })
+}
+
+// 折叠面板控件
+function RenderCollapse() {
+    let collapses = document.querySelectorAll("lit-collapse")
+    collapses.forEach(collapse => {
+        let items = collapse.querySelectorAll("lit-collapse-item")
+        items.forEach(item => { // 遍历折叠面板子项
+            let titleText = item.getAttribute("title")
+            let itemTitle = lit.createElement("lit-collapse-item-title", titleText)
+            lit.addElementInsertBefore(item, itemTitle)
+
+            // 初始化面板子项内容样式（隐藏）
+            let itemContents = item.querySelectorAll(":not(lit-collapse-item-title)")
+            itemContents.forEach(content => {
+                lit.addClass(content, "-lit-hide")
+                lit.addClass(content, "-lit-normal")
+            })
+
+            itemTitle.addEventListener("click", () => {
+                lit.toggleClass(itemContents, "-lit-hide")
+                lit.toggleClass(itemTitle, "-lit-clicked")
             })
         })
-    }
+    })
 }
+
 
 class Textarea {
     constructor() {
@@ -240,6 +313,7 @@ class Textarea {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let example = new Example
     let textarea = new Textarea
+    RenderExample()
+    RenderCollapse()
 })
