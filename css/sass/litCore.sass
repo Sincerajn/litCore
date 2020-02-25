@@ -6,8 +6,19 @@
  */
 
 @import "_global" // 全局样式
-@import "_modify" // 修饰样式
 
+// ==== 修饰样式 === //
+// 字族
+.-lit-serif
+    font-family: $serif
+.-lit-sans
+    font-family: $sans
+.-lit-monospace
+    font-family: $monospace
+// 过渡
+.-lit-transition-average
+    transition: .5s
+// ================ //
 
 // 基础定义
 body.-lit
@@ -32,7 +43,6 @@ lit-level,
     display: flex
     justify-content: space-between
     align-items: center
-    // background: $primary
 
     .-lit-left,
     .-lit-right
@@ -45,8 +55,8 @@ lit-level,
 
 
 // 水平布局
-lit-horizontal,
-.-lit-horizontal
+lit-row,
+.-lit-row
     display: flex
     flex-direction: row
     justify-self: flex-start
@@ -88,8 +98,8 @@ lit-horizontal,
 
 
 // 垂直布局
-lit-vertical,
-.-lit-vertical
+lit-col,
+.-lit-col
     display: flex
     flex-direction: column
     justify-self: flex-start
@@ -127,13 +137,12 @@ lit-vertical,
 
 // 顶栏
 lit-header,
-header.-lit-header,
+.-lit-header,
 header.-lit
     @extend .-lit-level
     align-items: baseline
     background: $primary
     padding: .5rem 1rem
-    // box-shadow: $header-normal-shadow
         
     lit-title,
     .-lit-title
@@ -152,10 +161,54 @@ lit-side,
     background: $morandi-yello
     transition: .5s
 
+// collapse 面板
+lit-collapse,
+.-lit-collapse
+    // display: flex
+    // flex-direction: column
+    display: block
+    background: #f2f2f2
+
+    lit-collapse-item
+        display: flex
+        flex-direction: column
+        box-shadow: $controls-normal-shadow
+
+        lit-collapse-item-title
+            display: block
+            font-weight: bold
+            background: $white
+            padding: 1rem
+            cursor: pointer
+            transition: $average-duration
+            &:hover
+                background: #f6f6f6
+            
+            &.-lit-clicked
+                background: #f3f3f3
+
+        div, p,
+            padding: 1rem
+            margin: 0
+            background: $white
+            &:hover
+                background: #f9f9f9
+
+            &.-lit-normal
+                transition: padding-top $average-duration, padding-bottom $average-duration, background $short-duration
+            &.-lit-hide
+                opacity: 0
+                padding: 0
+                height: 0
+                visibility: hidden
+
+        > a
+            @extend div
+
 
 // 链接
 lit-a,
-a.-lit-a,
+.-lit-a,
 a.-lit
     color: $accent
     font-weight: bold
@@ -192,6 +245,7 @@ button.-lit,
     &:active
         box-shadow: none
 
+    // 小 icon 按钮
     &.-lit-icon
         display: flex
         justify-content: center
@@ -205,6 +259,13 @@ button.-lit,
         &:hover
             box-shadow: $controls-hover-shadow
         &:active
+            box-shadow: none
+
+    &:disabled
+        box-shadow: none
+        cursor: not-allowed
+        opacity: .5
+        &:hover
             box-shadow: none
 
 
@@ -236,7 +297,6 @@ textarea.-lit
     padding: 1rem
     overflow-y: hidden
     resize: none
-
 lit-textarea
     @extend lit-input
     display: block
@@ -260,7 +320,7 @@ input[type=range].-lit
 
 // 列表
 lit-ul,
-ul.-lit-ul,
+.-lit-ul,
 ul.-lit,
     display: flex
     flex-direction: column
@@ -297,7 +357,8 @@ lit-tab,
 
 // 导航栏
 lit-nav,
-.-lit-nav
+.-lit-nav,
+nav.-lit
     display: flex
     font-weight: bold
     align-items: center
@@ -334,7 +395,7 @@ lit-dialog,
     .-lit-actions
 
 
-// 排版优化
+// === 排版优化 === //
 lit-typo,
 .-lit-typo
     display: block
@@ -378,16 +439,19 @@ lit-typo,
         padding: .125em .25em
         border-radius: 2px
     code
-        color: $material-red
+        color: $code-normal-color
         background: rgba(0, 0, 0, .04)
         font:
             family: $monospace
         padding: 0 .4em
         border-radius: 2px
     pre
+        overflow-x: auto
+
         code
             @extend code
             color: $black
+            font-weight: normal
             background: none
             padding: 0
     hr
@@ -415,6 +479,7 @@ lit-typo,
     img
         max-width: 100%
         margin: 0 auto
+// =============== //
 
 // 文档
 lit-doc,
@@ -441,9 +506,11 @@ lit-doc,
             top: 4rem
             bottom: 8rem
 
+
+// === 驱动控件 === //
 // 演示控件
 lit-example
-    @extend lit-vertical
+    @extend lit-col
     margin: 0 0 2rem
 
     lit-example-label
@@ -479,13 +546,15 @@ lit-example
         width: calc(100% - 2em - 2px)
         padding: 0
         margin: 0
-        border: 1px solid $pale
         opacity: 0
         transition: padding-top $average-duration, padding-bottom $average-duration
+        overflow-x: auto
         &.-lit-showcode
             height: auto
             padding: 1rem
+            border: 1px solid $pale
             opacity: 1
 
         code
             line-height: 2em
+// =============== //
