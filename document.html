@@ -34,15 +34,38 @@
         如若定义按钮控件，可以通过 <code>lit-btn</code> 标签定义，也可以为 <code>button</code> 元素添加 <code>-lit-btn</code> 类获得样式，对于
         <code>button</code> 这种具有明显语义化的元素，也可直接添加 <code>-lit</code> 类获得相应样式。
       </p>
+      <h3>折叠面板</h3>
+      <lit-example>
+        <lit-demo>
+          <lit-collapse class="accordion">
+            <lit-collapse-item title="第一栏">
+              <p><a href="javascript">第一章</a></p>
+              <a href="javascript">第二章</a>
+            </lit-collapse-item>
+            <lit-collapse-item title="第二栏">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.</p>
+            </lit-collapse-item>
+          </lit-collapse>
+        </lit-demo>
+        <pre><code>&lt;lit-collapse class="accordion"&gt;
+  &lt;lit-collapse-item title="第一栏"&gt;
+    &lt;p&gt;&lt;a href="javascript"&gt;第一章&lt;/a&gt;&lt;/p&gt;
+    &lt;a href="javascript"&gt;第二章&lt;/a&gt;
+  &lt;/lit-collapse-item&gt;
+    &lt;lit-collapse-item title="第二栏"&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.&lt;/p&gt;
+  &lt;/lit-collapse-item&gt;
+&lt;/lit-collapse&gt;</code></pre>
+      </lit-example>
       <h3>按钮</h3>
       <p>
         为 <code>a</code>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit-btn</code> 类，以获得按钮样式。
       </p>
       <lit-example>
         <lit-demo>
-          <a href="javascript:;" class="-lit-btn">按钮</a>
-          <input type="button" class="-lit-btn" value="按钮">
           <button class="-lit-btn">按钮</button>
+          <button class="-lit-btn">按钮</button>
+          <button class="-lit-btn" disabled>按钮</button>
         </lit-demo>
         <pre><code>&lt;a href="javascript:;" class="-lit-btn"&gt;按钮&lt;/a&gt;
 &lt;input type="button" class="-lit-btn" value="按钮"&gt;
