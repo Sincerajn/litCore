@@ -1,4 +1,0 @@
-{
-    "easysass.targetDir": "./css/", // 工作区 sass 编译输出目录
-    "easysass.excludeRegex": "_.+", // 编译时排除以下划线开头的 sass 文件
-}
