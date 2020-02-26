@@ -424,6 +424,10 @@ lit-drawer.-shadow {
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.24) !important;
 }
 
+lit-drawer.-scrollAuto {
+  overflow-y: auto;
+}
+
 main {
   transition: margin-left .5s;
 }
