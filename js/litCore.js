@@ -299,6 +299,7 @@ function renderDrawer() {
     let other = document.querySelectorAll("body > :not(lit-drawer)")
     let drawer = document.querySelector("lit-drawer")
     let menuBtn = document.querySelector("lit-menu-btn")
+    let headerHeight = document.querySelector("lit-header").scrollHeight
 
     function hideEvent() { // 用于保留于内存
         hideDrawer()
@@ -321,6 +322,10 @@ function renderDrawer() {
             return "pad"
         else
             return "pc"
+    }
+    function modifyHeaderHeight() {
+        drawer.style.height = `calc(100vh - ${headerHeight}px)`
+        drawer.style.top = `${headerHeight}px`
     }
 
     let toggleDrawer = () => { //FIXME: 当宽度改变时无法去除遮罩
@@ -354,11 +359,11 @@ function renderDrawer() {
     })
 
     if (getDriveType() == "pc") {
-        drawer.style.top = `${document.querySelector("lit-header").scrollHeight + 0}px`
+        modifyHeaderHeight()
         toggleDrawer()
     }
     else if (getDriveType() == "pad") {
-        drawer.style.top = `${document.querySelector("lit-header").scrollHeight + 0}px`
+        modifyHeaderHeight()
     }
 }
 
