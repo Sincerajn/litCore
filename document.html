@@ -10,86 +10,118 @@
 </head>
 
 <body class="-lit">
-  <lit-header>
+  <lit-header class="-shadow -sticky">
     <div class="-lit-left">
-      <a href="javascript:;" class="-lit-btn -lit-icon" id="side">
-        <svg t="1581761033071" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          p-id="11527" width="28" height="28">
+      <lit-menu-btn>
+        <svg t="1582710746261" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="2115">
           <path
-            d="M421.4 960S34.1 872.6 207.2 438.8c0 0 39.3 48.2 33.9 71.4 0 0 30.8-109.5 97.3-174.9C395.5 279.1 453.5 121.1 400 64c0 0 265 57.1 294.5 342.7 0 0 33.9-91 103.5-100 0 0-21.4 50 0 125 0 0 219.5 385.5-158.8 515.8 0 0 113.4-132.1-127.1-358.8 0 0-56.7 121.4-90.6 164.2-0.1 0.1-94.7 108.9-0.1 207.1z"
-            fill="#1D1D1B" p-id="11528"></path>
+            d="M886.186667 328.533333c5.546667 0 9.813333-6.826667 9.813333-14.08V240.213333c0-7.68-4.266667-14.08-9.813333-14.08H137.813333c-5.546667 0-9.813333 6.826667-9.813333 14.08v74.24c0 7.68 4.266667 14.08 9.813333 14.08zM128 549.12c0 7.68 4.266667 14.08 9.813333 14.08h748.373334c5.546667 0 9.813333-6.826667 9.813333-14.08v-74.24c0-7.68-4.266667-14.08-9.813333-14.08H137.813333c-5.546667 0-9.813333 6.826667-9.813333 14.08z m0 234.666667c0 7.68 4.266667 14.08 9.813333 14.08h748.373334c5.546667 0 9.813333-6.826667 9.813333-14.08v-74.24c0-7.68-4.266667-14.08-9.813333-14.08H137.813333c-5.546667 0-9.813333 6.826667-9.813333 14.08z"
+            p-id="2116"></path>
         </svg>
-      </a>
-      <lit-title>lit.css alpha</lit-title>
+      </lit-menu-btn>
+
+      <lit-title>
+        lit.css alpha
+      </lit-title>
+      <svg style="margin-left: -1rem;" t="1581761033071" class="icon" viewBox="0 0 1024 1024" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" p-id="11527" width="28" height="28">
+        <path
+          d="M421.4 960S34.1 872.6 207.2 438.8c0 0 39.3 48.2 33.9 71.4 0 0 30.8-109.5 97.3-174.9C395.5 279.1 453.5 121.1 400 64c0 0 265 57.1 294.5 342.7 0 0 33.9-91 103.5-100 0 0-21.4 50 0 125 0 0 219.5 385.5-158.8 515.8 0 0 113.4-132.1-127.1-358.8 0 0-56.7 121.4-90.6 164.2-0.1 0.1-94.7 108.9-0.1 207.1z"
+          fill="#1D1D1B" p-id="11528"></path>
+      </svg>
     </div>
   </lit-header>
 
+  <lit-drawer>
+    <lit-collapse>
+      <lit-collapse-item title="布局"">
+        <a href="javascript:;">格栅布局</a>
+        <a href="javascript:;">线性布局</a>
+        <a href="javascript:;">相应布局</a>
+      </lit-collapse-item>
+      <lit-collapse-item title="组件"">
+        <a href=" javascript:;">按钮</a>
+        <a href="javascript:;">单行输入框</a>
+        <a href="javascript:;">多行输入框</a>
+        <a href="javascript:;">折叠面板</a>
+        <a href="javascript:;">代码块</a>
+        <a href="javascript:;">折叠面板</a>
+        </lit-collapse-title>
+    </lit-collapse>
+  </lit-drawer>
+
   <main>
-    <lit-doc>
-      <h1>lit.css 交互式演示文档</h1>
-      <p>
-        <strong>lit.css</strong> 使用诸多现代化开发理念与技术，迅速构建响应式网页。支持通过类库更便捷的修改样式，同时提供封装控件直接使用。
-      </p>
-      <p>
-        如若定义按钮控件，可以通过 <code>lit-btn</code> 标签定义，也可以为 <code>button</code> 元素添加 <code>-lit-btn</code> 类获得样式，对于
-        <code>button</code> 这种具有明显语义化的元素，也可直接添加 <code>-lit</code> 类获得相应样式。
-      </p>
-      <h3>折叠面板</h3>
-      <lit-example>
-        <lit-demo>
-          <lit-collapse class="accordion">
-            <lit-collapse-item title="第一栏">
-              <p><a href="javascript">第一章</a></p>
-              <a href="javascript">第二章</a>
-            </lit-collapse-item>
-            <lit-collapse-item title="第二栏">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.</p>
-            </lit-collapse-item>
-          </lit-collapse>
-        </lit-demo>
-        <pre><code>&lt;lit-collapse class="accordion"&gt;
-  &lt;lit-collapse-item title="第一栏"&gt;
-    &lt;p&gt;&lt;a href="javascript"&gt;第一章&lt;/a&gt;&lt;/p&gt;
-    &lt;a href="javascript"&gt;第二章&lt;/a&gt;
-  &lt;/lit-collapse-item&gt;
-    &lt;lit-collapse-item title="第二栏"&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.&lt;/p&gt;
-  &lt;/lit-collapse-item&gt;
+    <lit-row>
+      <lit-col>
+        <lit-doc>
+          <h1>lit.css 交互式演示文档</h1>
+          <p>
+            <strong>lit.css</strong> 使用诸多现代化开发理念与技术，迅速构建响应式网页。支持通过类库更便捷的修改样式，同时提供封装控件直接使用。
+          </p>
+          <p>
+            如若定义按钮控件，可以通过 <code>lit-btn</code> 标签定义，也可以为 <code>button</code> 元素添加 <code>-lit-btn</code> 类获得样式，对于
+            <code>button</code> 这种具有明显语义化的元素，也可直接添加 <code>-lit</code> 类获得相应样式。
+          </p>
+          <h3 id="折叠面板">折叠面板</h3>
+          <lit-example>
+            <lit-demo>
+              <lit-collapse class="accordion">
+                <lit-collapse-item title="第一栏">
+                  <p><a href="javascript:;">第一章</a></p>
+                  <a href="#折叠面板">第二章</a>
+                </lit-collapse-item>
+                <lit-collapse-item title="第二栏">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.</p>
+                </lit-collapse-item>
+              </lit-collapse>
+            </lit-demo>
+            <pre><code>&lt;lit-collapse class="accordion"&gt;
+&lt;lit-collapse-item title="第一栏"&gt;
+  &lt;p&gt;&lt;a href="javascript"&gt;第一章&lt;/a&gt;&lt;/p&gt;
+  &lt;a href="javascript"&gt;第二章&lt;/a&gt;
+&lt;/lit-collapse-item&gt;
+  &lt;lit-collapse-item title="第二栏"&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.&lt;/p&gt;
+&lt;/lit-collapse-item&gt;
 &lt;/lit-collapse&gt;</code></pre>
-      </lit-example>
-      <h3>按钮</h3>
-      <p>
-        为 <code>a</code>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit-btn</code> 类，以获得按钮样式。
-      </p>
-      <lit-example>
-        <lit-demo>
-          <button class="-lit-btn">按钮</button>
-          <button class="-lit-btn">按钮</button>
-          <button class="-lit-btn" disabled>按钮</button>
-        </lit-demo>
-        <pre><code>&lt;a href="javascript:;" class="-lit-btn"&gt;按钮&lt;/a&gt;
+          </lit-example>
+          <h3>按钮</h3>
+          <p>
+            为 <code>a</code>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit-btn</code>
+            类，以获得按钮样式。
+          </p>
+          <lit-example>
+            <lit-demo>
+              <button class="-lit-btn">按钮</button>
+              <button class="-lit-btn">按钮</button>
+              <button class="-lit-btn" disabled>按钮</button>
+            </lit-demo>
+            <pre><code>&lt;a href="javascript:;" class="-lit-btn"&gt;按钮&lt;/a&gt;
 &lt;input type="button" class="-lit-btn" value="按钮"&gt;
 &lt;button class="-lit-btn"&gt;按钮&lt;/button&gt;</code></pre>
-      </lit-example>
-      <h3>单行输入框</h3>
-      <p>为 <code>input[type = text]</code> 元素添加 <code>.-lit-input</code> 类，以获得单行输入框样式。</p>
-      <lit-example>
-        <lit-demo>
-          <input class="-lit-input" type="text">
-        </lit-demo>
-        <pre><code>&lt;input class="-lit-input" type="text"&gt;</code></pre>
-      </lit-example>
-      <h3>多行输入框</h3>
-      <p>为 <code>textarea</code> 元素添加 <code>.-lit-textarea</code> 类，以获得多行输入框样式。多行输入框高度自适应，默认两行高度。</p>
-      <lit-example>
-        <lit-demo>
-          <textarea class="-lit-textarea">Hello, world!</textarea>
-          <lit-textarea contenteditable="plaintext-only">Hello, world!</lit-textarea>
-        </lit-demo>
-        <pre><code>&lt;textarea class="-lit-textarea"&gt;Hello, world!&lt;/textarea&gt;
+          </lit-example>
+          <h3>单行输入框</h3>
+          <p>为 <code>input[type = text]</code> 元素添加 <code>.-lit-input</code> 类，以获得单行输入框样式。</p>
+          <lit-example>
+            <lit-demo>
+              <input class="-lit-input" type="text">
+            </lit-demo>
+            <pre><code>&lt;input class="-lit-input" type="text"&gt;</code></pre>
+          </lit-example>
+          <h3>多行输入框</h3>
+          <p>为 <code>textarea</code> 元素添加 <code>.-lit-textarea</code> 类，以获得多行输入框样式。多行输入框高度自适应，默认两行高度。</p>
+          <lit-example>
+            <lit-demo>
+              <textarea class="-lit-textarea">Hello, world!</textarea>
+              <lit-textarea contenteditable="plaintext-only">Hello, world!</lit-textarea>
+            </lit-demo>
+            <pre><code>&lt;textarea class="-lit-textarea"&gt;Hello, world!&lt;/textarea&gt;
 &lt;lit-textarea&gt;Hello, world!&lt;/lit-textarea&gt;</code></pre>
-      </lit-example>
-    </lit-doc>
+          </lit-example>
+        </lit-doc> -->
+      </lit-col>
+    </lit-row>
   </main>
   </lit-side>
   <script src="js/litCore.js" type="module"></script>
