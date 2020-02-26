@@ -10,6 +10,15 @@
  * @LastEditors: Sincerajn
  * @LastEditTime: 2020-02-21 22:38:34
  */
+lit-header.-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.-opacity-3 {
+  opacity: .3;
+}
+
 .-lit-serif {
   font-family: "Noto Serif SC", Georgia, serif;
 }
@@ -71,6 +80,9 @@ lit-row,
   flex-direction: row;
   justify-self: flex-start;
   align-items: flex-start;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 lit-row.-lit-x-left,
@@ -183,6 +195,79 @@ lit-col, lit-example,
   flex-direction: column;
   justify-self: flex-start;
   align-items: flex-start;
+  max-width: 100%;
+  padding-left: .5rem;
+  padding-right: .5em;
+}
+
+lit-col:first-child, lit-example:first-child,
+.-lit-col:first-child {
+  padding-left: 0;
+}
+
+lit-col:last-child, lit-example:last-child,
+.-lit-col:last-child {
+  padding-right: 0;
+}
+
+lit-col.-span-1, lit-example.-span-1,
+.-lit-col.-span-1 {
+  width: calc(100% / 12 - 1rem);
+}
+
+lit-col.-span-2, lit-example.-span-2,
+.-lit-col.-span-2 {
+  width: calc(100% / 12 * 2);
+}
+
+lit-col.-span-3, lit-example.-span-3,
+.-lit-col.-span-3 {
+  width: calc(100% / 12 * 3);
+}
+
+lit-col.-span-4, lit-example.-span-4,
+.-lit-col.-span-4 {
+  width: calc(100% / 12 * 4);
+}
+
+lit-col.-span-5, lit-example.-span-5,
+.-lit-col.-span-5 {
+  width: calc(100% / 12 * 5);
+}
+
+lit-col.-span-6, lit-example.-span-6,
+.-lit-col.-span-6 {
+  width: calc(100% / 12 * 6);
+}
+
+lit-col.-span-7, lit-example.-span-7,
+.-lit-col.-span-7 {
+  width: calc(100% / 12 * 7);
+}
+
+lit-col.-span-8, lit-example.-span-8,
+.-lit-col.-span-8 {
+  width: calc(100% / 12 * 8);
+}
+
+lit-col.-span-9, lit-example.-span-9,
+.-lit-col.-span-9 {
+  width: calc(100% / 12 * 9);
+}
+
+lit-col.-span-10, lit-example.-span-10,
+.-lit-col.-span-10 {
+  width: calc(100% / 12 * 10);
+}
+
+lit-col.-span-11, lit-example.-span-11,
+.-lit-col.-span-11 {
+  width: calc(100% / 12 * 11);
+}
+
+lit-col.-span-12, lit-example.-span-12,
+.-lit-col.-span-12 {
+  width: 100%;
 }
 
 lit-col.-lit-x-left, lit-example.-lit-x-left,
@@ -232,7 +317,7 @@ lit-col .-offset-right, lit-example .-offset-right, lit-col lit-example lit-exam
 .-lit-col .-offset-right,
 .-lit-col lit-example lit-example-btn, lit-example
 .-lit-col lit-example-btn {
-  align-self: flex-end;
+  align-self: flex-end !important;
 }
 
 lit-col .-offset-stretch, lit-example .-offset-stretch,
@@ -247,6 +332,14 @@ header.-lit {
   align-items: baseline;
   background: #ffffff;
   padding: .5rem 1rem;
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+lit-header.-shadow,
+.-lit-header.-shadow,
+header.-lit.-shadow {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 lit-header lit-title,
@@ -260,87 +353,87 @@ header.-lit .-lit-title {
   margin: 0 1rem;
 }
 
-lit-side,
-.-lit-side {
-  display: block;
-  width: 30vw;
-  height: calc(100vh - 64px);
-  background: #cdc4a6;
-  transition: .5s;
-}
-
-lit-collapse,
-.-lit-collapse {
-  display: block;
-  background: #f2f2f2;
-}
-
-lit-collapse lit-collapse-item,
-.-lit-collapse lit-collapse-item {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
-}
-
-lit-collapse lit-collapse-item lit-collapse-item-title,
-.-lit-collapse lit-collapse-item lit-collapse-item-title {
-  display: block;
-  font-weight: bold;
-  background: #ffffff;
-  padding: 1rem;
+lit-header lit-menu-btn,
+.-lit-header lit-menu-btn,
+header.-lit lit-menu-btn {
+  height: 24px;
+  width: 24px;
+  margin-left: -8px;
+  padding: .5rem;
+  border-radius: 50%;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-lit-collapse lit-collapse-item lit-collapse-item-title:hover,
-.-lit-collapse lit-collapse-item lit-collapse-item-title:hover {
-  background: #f6f6f6;
+lit-header lit-menu-btn:hover,
+.-lit-header lit-menu-btn:hover,
+header.-lit lit-menu-btn:hover {
+  background: #efefef;
 }
 
-lit-collapse lit-collapse-item lit-collapse-item-title.-lit-clicked,
-.-lit-collapse lit-collapse-item lit-collapse-item-title.-lit-clicked {
-  background: #f3f3f3;
+@media screen and (min-width: 425px) {
+  lit-header lit-menu-btn,
+  .-lit-header lit-menu-btn,
+  header.-lit lit-menu-btn {
+    margin-left: 0;
+  }
 }
 
-lit-collapse lit-collapse-item div, lit-collapse lit-collapse-item > a, lit-collapse
+lit-header lit-menu-btn svg,
+.-lit-header lit-menu-btn svg,
+header.-lit lit-menu-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+lit-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+  background: #fafafa;
+  height: 100vh;
+  width: 80vw;
+  transition: transform 0.5s;
+  overflow-y: auto;
+  z-index: 12;
+}
+
+lit-drawer.-show {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.24);
+  transform: translate3d(0, 0, 0);
+}
+
+@media screen and (min-width: 425px) {
+  lit-drawer {
+    width: 32vw;
+    z-index: 8;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  lit-drawer {
+    width: 16vw;
+    box-shadow: none !important;
+    overflow-y: scroll;
+    z-index: 8;
+  }
+}
+
+lit-drawer.-shadow {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.24) !important;
+}
+
+main {
+  transition: margin-left .5s;
+}
+
+main.-drawerShow {
+  margin-left: 16vw;
+}
+
+lit-a, lit-example lit-example-btn, lit-collapse lit-collapse-item > a,
 .-lit-collapse lit-collapse-item > a,
-.-lit-collapse lit-collapse lit-collapse-item > a, lit-collapse lit-collapse-item p,
-.-lit-collapse lit-collapse-item div,
-.-lit-collapse lit-collapse lit-collapse-item > a, .-lit-collapse lit-collapse-item > a,
-.-lit-collapse lit-collapse-item p {
-  padding: 1rem;
-  margin: 0;
-  background: #ffffff;
-}
-
-lit-collapse lit-collapse-item div:hover, lit-collapse lit-collapse-item > a:hover, lit-collapse
-.-lit-collapse lit-collapse-item > a:hover, lit-collapse lit-collapse-item p:hover,
-.-lit-collapse lit-collapse-item div:hover,
-.-lit-collapse lit-collapse lit-collapse-item > a:hover, .-lit-collapse lit-collapse-item > a:hover,
-.-lit-collapse lit-collapse-item p:hover {
-  background: #f9f9f9;
-}
-
-lit-collapse lit-collapse-item div.-lit-normal, lit-collapse lit-collapse-item > a.-lit-normal, lit-collapse
-.-lit-collapse lit-collapse-item > a.-lit-normal, lit-collapse lit-collapse-item p.-lit-normal,
-.-lit-collapse lit-collapse-item div.-lit-normal,
-.-lit-collapse lit-collapse lit-collapse-item > a.-lit-normal, .-lit-collapse lit-collapse-item > a.-lit-normal,
-.-lit-collapse lit-collapse-item p.-lit-normal {
-  transition: padding-top 0.5s, padding-bottom 0.5s, background 0.3s;
-}
-
-lit-collapse lit-collapse-item div.-lit-hide, lit-collapse lit-collapse-item > a.-lit-hide, lit-collapse
-.-lit-collapse lit-collapse-item > a.-lit-hide, lit-collapse lit-collapse-item p.-lit-hide,
-.-lit-collapse lit-collapse-item div.-lit-hide,
-.-lit-collapse lit-collapse lit-collapse-item > a.-lit-hide, .-lit-collapse lit-collapse-item > a.-lit-hide,
-.-lit-collapse lit-collapse-item p.-lit-hide {
-  opacity: 0;
-  padding: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-lit-a, lit-example lit-example-btn,
 .-lit-a,
 lit-ul li.-lit a,
 .-lit-ul li.-lit a,
@@ -356,7 +449,8 @@ a.-lit {
   cursor: pointer;
 }
 
-lit-a:hover, lit-example lit-example-btn:hover,
+lit-a:hover, lit-example lit-example-btn:hover, lit-collapse lit-collapse-item > a:hover,
+.-lit-collapse lit-collapse-item > a:hover,
 .-lit-a:hover,
 lit-ul li.-lit a:hover,
 .-lit-ul li.-lit a:hover,
@@ -790,10 +884,10 @@ lit-typo img,
 
 lit-doc,
 .-lit-doc {
-  max-width: 40em;
+  width: calc(100% - 2rem);
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-top: 2rem;
+  margin-top: 1em;
   margin-bottom: 4rem;
   transition: 0.5s;
 }
@@ -801,6 +895,7 @@ lit-doc,
 @media screen and (min-width: 425px) {
   lit-doc,
   .-lit-doc {
+    max-width: 48em;
     margin-left: 4rem;
     margin-right: 4rem;
     margin-top: 3rem;
@@ -810,6 +905,7 @@ lit-doc,
 @media screen and (min-width: 768px) {
   lit-doc,
   .-lit-doc {
+    max-width: 40em;
     margin-left: 6rem;
     margin-right: 6rem;
     margin-top: 4rem;
@@ -861,7 +957,6 @@ lit-example pre {
   margin: 0;
   opacity: 0;
   transition: padding-top 0.5s, padding-bottom 0.5s;
-  overflow-x: auto;
 }
 
 lit-example pre.-lit-showcode {
@@ -876,5 +971,78 @@ lit-example pre code, lit-example
 .-lit-typo lit-example pre code, lit-example lit-doc pre code, lit-doc lit-example pre code, lit-example
 .-lit-doc pre code,
 .-lit-doc lit-example pre code {
-  line-height: 2em;
+  font-size: 14px;
+}
+
+lit-collapse,
+.-lit-collapse {
+  width: 100%;
+  display: block;
+  background: #f2f2f2;
+}
+
+lit-collapse lit-collapse-item,
+.-lit-collapse lit-collapse-item {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+lit-collapse lit-collapse-item lit-collapse-item-title,
+.-lit-collapse lit-collapse-item lit-collapse-item-title {
+  display: block;
+  font-weight: bold;
+  background: #ffffff;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+lit-collapse lit-collapse-item lit-collapse-item-title:hover,
+.-lit-collapse lit-collapse-item lit-collapse-item-title:hover {
+  background: #f6f6f6;
+}
+
+lit-collapse lit-collapse-item lit-collapse-item-title.-lit-clicked,
+.-lit-collapse lit-collapse-item lit-collapse-item-title.-lit-clicked {
+  background: #f3f3f3;
+}
+
+lit-collapse lit-collapse-item div, lit-collapse lit-collapse-item p, lit-collapse lit-collapse-item > a,
+.-lit-collapse lit-collapse-item div,
+.-lit-collapse lit-collapse-item p,
+.-lit-collapse lit-collapse-item > a {
+  padding: 1rem;
+  margin: 0;
+  background: #ffffff;
+}
+
+lit-collapse lit-collapse-item div:hover, lit-collapse lit-collapse-item p:hover, lit-collapse lit-collapse-item > a:hover,
+.-lit-collapse lit-collapse-item div:hover,
+.-lit-collapse lit-collapse-item p:hover,
+.-lit-collapse lit-collapse-item > a:hover {
+  background: #f9f9f9;
+}
+
+lit-collapse lit-collapse-item div.-lit-normal, lit-collapse lit-collapse-item p.-lit-normal, lit-collapse lit-collapse-item > a.-lit-normal,
+.-lit-collapse lit-collapse-item div.-lit-normal,
+.-lit-collapse lit-collapse-item p.-lit-normal,
+.-lit-collapse lit-collapse-item > a.-lit-normal {
+  transition: padding-top 0.5s, padding-bottom 0.5s, background 0.3s;
+}
+
+lit-collapse lit-collapse-item div.-lit-hide, lit-collapse lit-collapse-item p.-lit-hide, lit-collapse lit-collapse-item > a.-lit-hide,
+.-lit-collapse lit-collapse-item div.-lit-hide,
+.-lit-collapse lit-collapse-item p.-lit-hide,
+.-lit-collapse lit-collapse-item > a.-lit-hide {
+  opacity: 0;
+  padding: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+lit-collapse lit-collapse-item > a,
+.-lit-collapse lit-collapse-item > a {
+  color: inherit;
+  font-weight: normal;
 }

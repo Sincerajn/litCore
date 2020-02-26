@@ -48,17 +48,17 @@ let lit = {
     },
 
     hasClass: (elements, inputClass) => {
-        // if (elements instanceof HTMLElement)
-        return elements.className.includes(inputClass)
-        // else
-        // throw "未传入 HTMLElement"
+        if (elements instanceof HTMLElement)
+            return elements.className.includes(inputClass)
+        else
+            throw "未传入 HTMLElement"
     },
     addClass: (elements, inputClass) => {
         if (elements instanceof HTMLElement) {
             if (!lit.hasClass(elements, inputClass))
                 elements.className += ` ${inputClass}`
             else
-                throw `${elements.localName} 已存在为 ${inputClass} 的 class`
+                console.log(`${elements.localName} 已存在为 ${inputClass} 的 class`)
         }
         else if (elements instanceof NodeList) {
             elements.forEach(e => {
@@ -81,7 +81,7 @@ let lit = {
             }
             else {
                 console.log('出错元素:', elements)
-                throw new ReferenceError(`元素不存在为 "${inputClass}" 的 Class`)
+                console.log(`元素不存在为 "${inputClass}" 的 Class`)
             }
         }
         else if (elements instanceof NodeList) {
@@ -246,7 +246,7 @@ export const CodeBox = class CodeBox extends litCore {
 }
 
 // 示例控件
-function RenderExample() {
+function renderExample() {
     let examples = document.querySelectorAll("lit-example")
 
     examples.forEach(example => {
@@ -269,7 +269,7 @@ function RenderExample() {
 }
 
 // 折叠面板控件
-function RenderCollapse() {
+function renderCollapse() {
     let collapses = document.querySelectorAll("lit-collapse")
     collapses.forEach(collapse => {
         let items = collapse.querySelectorAll("lit-collapse-item")
@@ -280,9 +280,9 @@ function RenderCollapse() {
 
             // 初始化面板子项内容样式（隐藏）
             let itemContents = item.querySelectorAll(":not(lit-collapse-item-title)")
-            itemContents.forEach(content => {
-                lit.addClass(content, "-lit-hide")
-                lit.addClass(content, "-lit-normal")
+            itemContents.forEach(content => { // FIXME: 待完善
+                // lit.addClass(content, "-lit-hide")
+                // lit.addClass(content, "-lit-normal")
             })
 
             itemTitle.addEventListener("click", () => {
@@ -293,27 +293,95 @@ function RenderCollapse() {
     })
 }
 
+// 抽屉导航控件
+function renderDrawer() {
+    let main = document.querySelector("lit-main, main")
+    let other = document.querySelectorAll("body > :not(lit-drawer)")
+    let drawer = document.querySelector("lit-drawer")
+    let menuBtn = document.querySelector("lit-menu-btn")
 
-class Textarea {
-    constructor() {
-        let textareas = document.querySelectorAll("textarea.-lit-textarea")
-        textareas.forEach((textarea) => {
-            const style = window.getComputedStyle(textarea)
-            const paddingTop = parseFloat(style.paddingTop.replace("px", ""))
-            const paddingBottom = parseFloat(style.paddingBottom.replace("px", ""))
-            const padding = paddingTop + paddingBottom
+    function hideEvent() { // 用于保留于内存
+        hideDrawer()
+        lit.removeClass(other, "-opacity-3")
 
-            textarea.addEventListener("input", () => {
-                textarea.style.height = "auto" // 处理删除触发缩短高度
-                textarea.style.height = `${textarea.scrollHeight - padding}px`
-            })
+        other.forEach(e => {
+            e.removeEventListener("click", hideEvent)
         })
+    }
+    function showDrawer() {
+        lit.addClass(drawer, "-show")
+    }
+    function hideDrawer() {
+        lit.removeClass(drawer, "-show")
+    }
+    function getDriveType() {
+        if (document.body.clientWidth <= 425)
+            return "phone"
+        else if (document.body.clientWidth <= 1024)
+            return "pad"
+        else
+            return "pc"
+    }
+
+    let toggleDrawer = () => { //FIXME: 当宽度改变时无法去除遮罩
+        if (getDriveType() != "pc") {
+            if (getDriveType() == "pad") {
+                other = document.querySelectorAll("body > :not(lit-drawer):not(lit-header)")
+            }
+
+            if (!lit.hasClass(drawer, "-show")) {
+                showDrawer()
+                lit.addClass(other, "-opacity-3")
+
+                other.forEach(e => {
+                    e.addEventListener("click", hideEvent)
+                })
+            }
+            else if (lit.hasClass(drawer, "-show")) {
+                hideDrawer()
+                lit.removeClass(other, "-opacity-3")
+            }
+        }
+        else {
+            lit.toggleClass(drawer, "-show")
+            lit.toggleClass(main, "-drawerShow")
+        }
+    }
+
+    menuBtn.addEventListener("click", (event) => {
+        toggleDrawer()
+        event.stopPropagation()
+    })
+
+    if (getDriveType() == "pc") {
+        drawer.style.top = `${document.querySelector("lit-header").scrollHeight + 0}px`
+        toggleDrawer()
+    }
+    else if (getDriveType() == "pad") {
+        drawer.style.top = `${document.querySelector("lit-header").scrollHeight + 0}px`
     }
 }
 
 
+function renderTextarea() {
+    let textareas = document.querySelectorAll("textarea.-lit-textarea")
+    textareas.forEach((textarea) => {
+        const style = window.getComputedStyle(textarea)
+        const paddingTop = parseFloat(style.paddingTop.replace("px", ""))
+        const paddingBottom = parseFloat(style.paddingBottom.replace("px", ""))
+        const padding = paddingTop + paddingBottom
+
+        textarea.addEventListener("input", () => {
+            textarea.style.height = "auto" // 处理删除触发缩短高度
+            textarea.style.height = `${textarea.scrollHeight - padding}px`
+        })
+    })
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    let textarea = new Textarea
-    RenderExample()
-    RenderCollapse()
+    renderTextarea()
+    renderExample()
+    renderCollapse()
+    renderDrawer()
 })

@@ -8,6 +8,13 @@
 @import "_global" // 全局样式
 
 // ==== 修饰样式 === //
+// 定位
+lit-header.-sticky
+    position: sticky
+    top: 0
+// 遮罩
+.-opacity-3
+    opacity: .3
 // 字族
 .-lit-serif
     font-family: $serif
@@ -61,6 +68,9 @@ lit-row,
     flex-direction: row
     justify-self: flex-start
     align-items: flex-start
+    width: 100%
+    max-width: 1024px
+    margin: 0 auto
 
     &.-lit-x-left
         justify-content: flex-start
@@ -104,7 +114,40 @@ lit-col,
     flex-direction: column
     justify-self: flex-start
     align-items: flex-start
+    max-width: 100%
+    padding:
+        left: .5rem
+        right: .5em
+    &:first-child
+        padding-left: 0
+    &:last-child
+        padding-right: 0
 
+    &.-span-1
+        width: calc(100% / 12 - 1rem)
+    &.-span-2
+        width: calc(100% / 12 * 2)
+    &.-span-3
+        width: calc(100% / 12 * 3)
+    &.-span-4
+        width: calc(100% / 12 * 4)
+    &.-span-5
+        width: calc(100% / 12 * 5)
+    &.-span-6
+        width: calc(100% / 12 * 6)
+    &.-span-7
+        width: calc(100% / 12 * 7)
+    &.-span-8
+        width: calc(100% / 12 * 8)
+    &.-span-9
+        width: calc(100% / 12 * 9)
+    &.-span-10
+        width: calc(100% / 12 * 10)
+    &.-span-11
+        width: calc(100% / 12 * 11)
+    &.-span-12
+        width: 100%
+    
     &.-lit-x-left
         align-items: flex-start
     &.-lit-x-center
@@ -128,7 +171,7 @@ lit-col,
         align-self: center
     .-offset-right
         @extend .-offset-top
-        align-self: flex-end
+        align-self: flex-end !important
     .-offset-stretch
         @extend .-offset-top
         height: auto !important
@@ -143,6 +186,10 @@ header.-lit
     align-items: baseline
     background: $primary
     padding: .5rem 1rem
+    margin-bottom: 2rem
+    z-index: 10
+    &.-shadow
+        box-shadow: $header-normal-shadow
         
     lit-title,
     .-lit-title
@@ -151,60 +198,67 @@ header.-lit
             family: $serif
         margin: 0 1rem
 
+    lit-menu-btn
+        height: 24px
+        width: 24px
+        margin-left: -8px
+        padding: .5rem
+        border-radius: 50%
+        cursor: pointer
+        transition: $short-duration
+        &:hover
+            background: #efefef
+        @media screen and (min-width:425px)
+            margin-left: 0
+            
+        svg
+            width: 100%
+            height: 100%
+
+// Navigation Drawer 
+lit-drawer
+    position: fixed
+    top: 0
+    left: 0
+    transform: translate3d(-100%, 0 , 0)
+    background: #fafafa
+    height: 100vh
+    width: 80vw
+    transition: transform $average-duration
+    overflow-y: auto
+    z-index: 12
+    &.-show
+        box-shadow: 2px 0 4px rgba(0, 0, 0, .24)
+        transform: translate3d(0, 0 , 0)
+    // 平板样式
+    @media screen and ( min-width:425px)
+        width: 32vw
+        z-index: 8
+    // 电脑样式
+    @media screen and ( min-width:1024px)
+        width: $drawer-width
+        box-shadow: none !important
+        overflow-y: scroll
+        z-index: 8
+    &.-shadow
+        box-shadow: 2px 0 4px rgba(0, 0, 0, .24) !important
+
 
 // 侧边栏
-lit-side,
-.-lit-side
+// lit-side,
+// .-lit-side
     display: block
     width: 30vw
     height: calc(100vh - 64px)
     background: $morandi-yello
     transition: .5s
 
-// collapse 面板
-lit-collapse,
-.-lit-collapse
-    // display: flex
-    // flex-direction: column
-    display: block
-    background: #f2f2f2
-
-    lit-collapse-item
-        display: flex
-        flex-direction: column
-        box-shadow: $controls-normal-shadow
-
-        lit-collapse-item-title
-            display: block
-            font-weight: bold
-            background: $white
-            padding: 1rem
-            cursor: pointer
-            transition: $average-duration
-            &:hover
-                background: #f6f6f6
-            
-            &.-lit-clicked
-                background: #f3f3f3
-
-        div, p,
-            padding: 1rem
-            margin: 0
-            background: $white
-            &:hover
-                background: #f9f9f9
-
-            &.-lit-normal
-                transition: padding-top $average-duration, padding-bottom $average-duration, background $short-duration
-            &.-lit-hide
-                opacity: 0
-                padding: 0
-                height: 0
-                visibility: hidden
-
-        > a
-            @extend div
-
+// 主要内容区
+// lit-main,
+main
+    transition: margin-left .5s
+    &.-drawerShow
+        margin-left: $drawer-width
 
 // 链接
 lit-a,
@@ -486,20 +540,22 @@ lit-doc,
 .-lit-doc
     // 手机尺寸
     @extend .-lit-typo
-    max-width: 40em
+    width: calc(100% - 2rem)
     margin:
         left: 1rem
         right: 1rem
-        top: 2rem
+        top: 1em
         bottom: 4rem
     transition: $average-duration
     // 平板尺寸
     @media screen and ( min-width: 425px)
+        max-width: 48em
         margin:
             left: 4rem
             right: 4rem
             top: 3rem
     @media screen and ( min-width: 768px)
+        max-width: 40em
         margin:
             left: 6rem
             right: 6rem
@@ -548,7 +604,6 @@ lit-example
         margin: 0
         opacity: 0
         transition: padding-top $average-duration, padding-bottom $average-duration
-        overflow-x: auto
         &.-lit-showcode
             height: auto
             padding: 1rem
@@ -556,5 +611,50 @@ lit-example
             opacity: 1
 
         code
-            line-height: 2em
+            font-size: 14px
+
+// collapse 面板
+lit-collapse,
+.-lit-collapse
+    width: 100%
+    display: block
+    background: #f2f2f2
+
+    lit-collapse-item
+        display: flex
+        flex-direction: column
+        box-shadow: $controls-normal-shadow
+
+        lit-collapse-item-title
+            display: block
+            font-weight: bold
+            background: $white
+            padding: 1rem
+            cursor: pointer
+            transition: $average-duration
+            &:hover
+                background: #f6f6f6
+            
+            &.-lit-clicked
+                background: #f3f3f3
+
+        div, p, > a
+            padding: 1rem
+            margin: 0
+            background: $white
+            &:hover
+                background: #f9f9f9
+
+            &.-lit-normal
+                transition: padding-top $average-duration, padding-bottom $average-duration, background $short-duration
+            &.-lit-hide
+                opacity: 0
+                padding: 0
+                height: 0
+                visibility: hidden
+        > a
+            @extend lit-a
+            color: inherit
+            font-weight: normal
+
 // =============== //
