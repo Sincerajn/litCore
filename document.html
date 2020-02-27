@@ -35,13 +35,13 @@
 
   <lit-drawer>
     <lit-collapse>
-      <lit-collapse-item title="布局"">
+      <lit-collapse-item -title="布局"">
         <a href="javascript:;">格栅布局</a>
         <a href="javascript:;">线性布局</a>
         <a href="javascript:;">相应布局</a>
       </lit-collapse-item>
-      <lit-collapse-item title="组件"">
-        <a href=" javascript:;">按钮</a>
+      <lit-collapse-item -title="组件"">
+        <a href="javascript:;">按钮</a>
         <a href="javascript:;">单行输入框</a>
         <a href="javascript:;">多行输入框</a>
         <a href="javascript:;">折叠面板</a>
@@ -66,12 +66,12 @@
           <h3 id="折叠面板">折叠面板</h3>
           <lit-example>
             <lit-demo>
-              <lit-collapse class="accordion">
-                <lit-collapse-item title="第一栏">
-                  <p><a href="javascript:;">第一章</a></p>
-                  <a href="#折叠面板">第二章</a>
+              <lit-collapse class="-accordion">
+                <lit-collapse-item -title="第一栏">
+                  <a href="javascript:;">第一章</a>
+                  <a href="javascript:;">第二章</a>
                 </lit-collapse-item>
-                <lit-collapse-item title="第二栏">
+                <lit-collapse-item -title="第二栏">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione non.</p>
                 </lit-collapse-item>
               </lit-collapse>

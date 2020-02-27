@@ -221,7 +221,7 @@ lit-drawer
     top: 0
     left: 0
     transform: translate3d(-100%, 0 , 0)
-    background: #fafafa
+    background: $white
     height: 100vh
     width: 80vw
     transition: transform $average-duration
@@ -570,6 +570,7 @@ lit-doc,
 lit-example
     @extend lit-col
     margin: 0 0 2rem
+    padding: 0
 
     lit-example-label
         display: inline-block
@@ -618,45 +619,45 @@ lit-example
 // collapse 面板
 lit-collapse,
 .-lit-collapse
-    width: 100%
     display: block
-    background: #f2f2f2
+
+    lit-collapse-item-title
+        display: block
+        font-weight: bold
+        background: #f3f3f3
+        padding: 1rem
+        box-shadow: $controls-normal-shadow
+        cursor: pointer
+        &.-clicked
+            background: #3f3f3f
 
     lit-collapse-item
         display: flex
         flex-direction: column
+        visibility: hidden
+        height: 0
         box-shadow: $controls-normal-shadow
-
-        lit-collapse-item-title
-            display: block
-            font-weight: bold
-            background: $white
-            padding: 1rem
-            cursor: pointer
-            transition: $average-duration
-            &:hover
-                background: #f6f6f6
-            
-            &.-lit-clicked
-                background: #f3f3f3
+        opacity: 0
+        transition: height $average-duration, opacity $short-duration
+        &.-show
+            visibility: visible
+            opacity: 1
+        &.-getHeight // 用于 js 动态获取高度
+            position: absolute
+            height: auto
 
         div, p, > a
             padding: 1rem
             margin: 0
             background: $white
+            transition: $short-duration
             &:hover
                 background: #f9f9f9
-
-            &.-lit-normal
-                transition: padding-top $average-duration, padding-bottom $average-duration, background $short-duration
-            &.-lit-hide
-                opacity: 0
-                padding: 0
-                height: 0
-                visibility: hidden
         > a
             @extend lit-a
             color: inherit
             font-weight: normal
+            &:hover
+                text-decoration: none
 
 // =============== //

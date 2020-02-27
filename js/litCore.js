@@ -80,8 +80,7 @@ let lit = {
                 elements.className = className
             }
             else {
-                console.log('出错元素:', elements)
-                console.log(`元素不存在为 "${inputClass}" 的 Class`)
+                console.log(`${elements}元素不存在为 "${inputClass}" 的 Class`)
             }
         }
         else if (elements instanceof NodeList) {
@@ -274,20 +273,33 @@ function renderCollapse() {
     collapses.forEach(collapse => {
         let items = collapse.querySelectorAll("lit-collapse-item")
         items.forEach(item => { // 遍历折叠面板子项
-            let titleText = item.getAttribute("title")
+            // 动态生成 item-title 元素
+            let titleText = item.getAttribute("-title")
             let itemTitle = lit.createElement("lit-collapse-item-title", titleText)
-            lit.addElementInsertBefore(item, itemTitle)
+            collapse.insertBefore(itemTitle, item)
 
-            // 初始化面板子项内容样式（隐藏）
-            let itemContents = item.querySelectorAll(":not(lit-collapse-item-title)")
-            itemContents.forEach(content => { // FIXME: 待完善
-                // lit.addClass(content, "-lit-hide")
-                // lit.addClass(content, "-lit-normal")
-            })
+            let height = function () {
+                lit.addClass(item, "-getHeight")
+                let height = window.getComputedStyle(item).height
+                lit.removeClass(item, "-getHeight")
+                return height
+            }()
+
+            function toggleItem(item) {
+                lit.toggleClass(item, "-show")
+                lit.hasClass(item, "-show") ? item.style.height = height : item.style.height = 0
+            }
 
             itemTitle.addEventListener("click", () => {
-                lit.toggleClass(itemContents, "-lit-hide")
-                lit.toggleClass(itemTitle, "-lit-clicked")
+                toggleItem(item)
+
+                if (lit.hasClass(collapse, "-accordion") && lit.hasClass(item, "-show")) { //手风琴效果
+                    items.forEach(e => {
+                        if (e != item && lit.hasClass(e, "-show")) {
+                            toggleItem(e)
+                        }
+                    })
+                }
             })
         })
     })
