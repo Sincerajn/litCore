@@ -178,7 +178,7 @@ class litCore { // TODO: 核心库，需要扩充
 }
 
 // 控件
-export const Header = class Header extends litCore {
+class Header extends litCore {
     constructor(selector = "header") {
         super(selector)
     }
@@ -190,7 +190,7 @@ export const Header = class Header extends litCore {
             this.addClass("-lit-sd")
     }
 }
-export const ToUpBtn = class ToUpBtn extends litCore {
+class ToUpBtn extends litCore {
     constructor(selector = ".-lit-toUpBtn") {
         super(selector)
 
@@ -206,7 +206,7 @@ export const ToUpBtn = class ToUpBtn extends litCore {
         }
     }
 }
-export const CodeBox = class CodeBox extends litCore {
+class CodeBox extends litCore {
     constructor(selector = ".-lit-code") {
         super(selector)
 
