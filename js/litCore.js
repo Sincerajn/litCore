@@ -1,16 +1,3 @@
-/*
- * @Author: Sincerajn
- * @Date: 2020-02-21 16:43:13
- * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 18:50:24
- */
-/*
- * @Author: Sincerajn
- * @Date: 2020-02-13 13:10:05
- * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 12:58:08
- */
-
 const jsKeywords = ["abstract", "arguments", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "debugger", "default", "delete", "do", "double", "else", "enum", "eval", "export", "extends", "false", "final", "finally", "float", "for", "function", "goto", "if", "implements", "import", "in", "instanceof", "int", "interface", "let", "long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "true", "try", "typeof", "var", "void", "volatile", "while", "with", "yield"]
 const jdObjects = ["Array", "Date", "Math", "Number", "Object", "String", "Boolean", "Map", "Set", "Regexp", "Promise"]
 
