@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavDemo</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/litCore.css">
+    <link rel="stylesheet" href="css/navigation.min.css">
+    <script src="https://cdn.bootcss.com/store.js/1.3.20/store.min.js"></script>
+    <script src="js/navigation.js"></script>
+</head>
+
+<body class="-lit">
+    <header>
+        <input type="text" id="search" class="-lit" placeholder="搜索">
+        <div class="engines">
+            <button id="google" class="-lit-btn"><span style="color: #4285f4;">G</span><span
+                    style="color: #ea4335">o</span><span style="color: #fbbc05">o</span><span
+                    style="color: #4285f4;">g</span><span style="color: #34a853">l</span><span
+                    style="color: #ea4335;">e</span></button>
+            <button id="bing" class="-lit-btn"><span style="color: #008373;">Bing</span></button>
+            <button id="magi" class="-lit-btn"><span
+                    style="color: #36363a;font-family: Georgia, serif;">Magi</span></button>
+        </div>
+    </header>
+
+    <main>
+        <lit-row class="box">
+            <!-- JavaScript 动态生成，形如： -->
+            <!-- <div class="site-card">
+                <span class="site-title">
+                    <img class="site-logo" src="https://www.google.com/s2/favicons?domain=github.com/">
+                    <span class="site-name">Github</span>
+                </span>
+                <span class="site-description">全球最大的代码托管平台与开源社区。</span>
+            </div> -->
+        </lit-row>
+    </main>
+
+    <button id="addSiteBtn" class="-lit">Add</button>
+
+    <form id="addSiteForm" action="">
+        <span class="title">添加新网站</span>
+        <input type="text" class="-lit" name="name" id="name" placeholder="名称">
+        <input type="text" class="-lit" name="description" id="description" placeholder="描述">
+        <input type="text" class="-lit" name="url" id="url" placeholder="链接" value="https://">
+        <div class="tools">
+            <button class="-lit" id="cancel">取消</button>
+            <button class="-lit" id="submit">添加</button>
+        </div>
+    </form>
+</body>
+
+</html>

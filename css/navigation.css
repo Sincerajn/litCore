@@ -1,0 +1,181 @@
+/*
+ * @Author: Sincerajn
+ * @Date: 2020-02-20 13:49:07
+ * @LastEditors: Sincerajn
+ * @LastEditTime: 2020-02-21 22:38:34
+ */
+body {
+  background: #f1f3f4;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem;
+  box-shadow: none;
+  margin-bottom: 6rem;
+  transition: .3s;
+}
+
+header:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+header.opacity {
+  opacity: .2;
+}
+
+header #search {
+  width: calc(100% - 2em);
+  max-width: 24em;
+}
+
+header .engines {
+  height: 0;
+  opacity: 0;
+  transition: .3s;
+}
+
+header .engines.show {
+  height: 2.5rem;
+  padding-top: 1rem;
+  opacity: 1;
+}
+
+header .engines button {
+  width: 5em;
+  line-height: 1.5em;
+  font-weight: bold;
+  background: transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+  box-shadow: none;
+}
+
+header .engines button:hover {
+  background: #f2f2f2f2;
+  box-shadow: none;
+}
+
+header .engines button#bing {
+  font-family: "Microsoft YaHei";
+  font-weight: normal;
+}
+
+main.opacity {
+  opacity: .2;
+}
+
+.box {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 900px;
+}
+
+.site-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  width: 14rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.site-card:hover {
+  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+.site-card .site-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: .25em;
+}
+
+.site-card .site-title .site-name {
+  font-family: "Noto Serif SC", Georgia, serif;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.site-card .site-title .site-logo {
+  display: inline-block;
+  margin-right: .375em;
+}
+
+.site-card .site-description {
+  color: #666;
+  font-size: 14px;
+  height: 3em;
+  overflow: hidden;
+}
+
+#addSiteBtn {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  font-size: .8rem;
+  font-weight: bold;
+  color: #666666;
+  background: #f5f6f7;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  opacity: .5;
+}
+
+#addSiteBtn:hover {
+  opacity: 1;
+}
+
+#addSiteForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 30vh;
+  left: 50vw;
+  transform: translate3d(-50%, 0, 0);
+  background: #ffffff;
+  width: 16em;
+  margin: 0 auto;
+  padding: 1.2rem 2.4rem;
+  border-radius: 4px;
+  transition: opacity .3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#addSiteForm.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+#addSiteForm .title {
+  font-family: "Noto Serif SC", Georgia, serif;
+  margin-bottom: 1em;
+}
+
+#addSiteForm input[type=text] {
+  margin-bottom: 1em;
+  width: calc(100% - 2rem);
+}
+
+#addSiteForm .tools {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#addSiteForm .tools button {
+  font-size: .8rem;
+  margin-left: 1em;
+}
