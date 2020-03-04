@@ -17,7 +17,7 @@ header {
   background: #ffffff;
   padding: 1rem;
   box-shadow: none;
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
   transition: .3s;
 }
 
@@ -37,7 +37,7 @@ header #search {
 header .engines {
   height: 0;
   opacity: 0;
-  transition: .3s;
+  transition: height .3s, padding .3s, opacity .2s;
 }
 
 header .engines.show {
@@ -98,7 +98,7 @@ main.opacity {
 }
 
 .site-card .site-title .site-name {
-  font-family: "Noto Serif SC", Georgia, serif;
+  font-family: Roboto, "Noto Sans SC", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
@@ -112,12 +112,13 @@ main.opacity {
 
 .site-card .site-description {
   color: #666;
+  font-family: "Noto Serif SC", Georgia, serif;
   font-size: 14px;
-  height: 3em;
+  height: 4em;
   overflow: hidden;
 }
 
-#addSiteBtn {
+#addSiteBtn, #manageBtn {
   position: fixed;
   bottom: 3rem;
   right: 3rem;
@@ -132,8 +133,24 @@ main.opacity {
   opacity: .5;
 }
 
-#addSiteBtn:hover {
+#addSiteBtn:hover, #manageBtn:hover {
   opacity: 1;
+}
+
+#addSiteBtn:hover ~ #manageBtn, #manageBtn:hover ~ #manageBtn {
+  opacity: 1;
+  visibility: visible;
+}
+
+#manageBtn {
+  bottom: 7rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#manageBtn:hover {
+  opacity: 1;
+  visibility: visible;
 }
 
 #addSiteForm {
@@ -145,10 +162,11 @@ main.opacity {
   left: 50vw;
   transform: translate3d(-50%, 0, 0);
   background: #ffffff;
-  width: 16em;
+  width: 24em;
   margin: 0 auto;
   padding: 1.2rem 2.4rem;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: opacity .3s;
   visibility: hidden;
   opacity: 0;

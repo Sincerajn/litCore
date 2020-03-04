@@ -109,25 +109,40 @@ function siteCardFactory(site = { name, description, url }) {
         return undefined
 }
 
+function exportSitesData() {
+    if (sites)
+        return sites
+}
+
+function download(filename, text) {
+    var element = document.createElement('a')
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text))
+    element.setAttribute('download', filename)
+
+    element.style.display = 'none'
+    document.body.appendChild(element)
+
+    element.click()
+
+    document.body.removeChild(element)
+}
+
 function initSites() { // 初始化储存
     let sites = store.get("sites")
     if (!sites) {
         sites = [ // 默认站点卡片数据
-            {
-                name: "Github",
-                description: "全球最大的代码托管平台与开源社区。",
-                url: "github.com"
-            },
-            {
-                name: "知乎",
-                description: "与世界分享你的知识、经验与见解。上知乎，与世界分享你刚编的段子。",
-                url: "zhihu.com"
-            },
-            {
-                name: "哔哩哔哩",
-                description: "全国最大的同性交友网站",
-                url: "bilibili.com"
-            }
+            {name: "Github", description: "全球最大的代码托管平台与开源社区。", url: "github.com"},
+            {name: "知乎", description: "与世界分享你的知识、经验与见解。上知乎，与世界分享你刚编的段子。", url: "zhihu.com"},
+            {name: "哔哩哔哩", description: "全国最大的同性交友网站", url: "bilibili.com"},
+            {name: "Gitbook", description: "我的 Gitbook 空间", url: "https://www.gitbook.com"},
+            {name: "翻译", description: "谷歌翻译工具", url: "https://translate.google.cn/"},
+            {name: "阮一峰", description: "阮一峰先生的博客", url: "http://www.ruanyifeng.com/blog/"},
+            {name: "奶牛快传", description: "文件传输服务", url: "https://cowtransfer.com/"},
+            {name: "站酷", description: "设计师互动平台", url: "https://www.zcool.com.cn/"},
+            {name: "墨刀", description: "产品原型设计工具", url: "https://free.modao.cc/"},
+            {name: "石墨文档", description: "协助网络文档", url: "https://shimo.im/desktop"},
+            {name: "表严肃", description: "生动有趣的表严肃系列课程", url: "https://biaoyansu.com/"},
+            {name: "Iconfont", description: "阿里巴巴矢量图标库", url: "https://www.iconfont.cn/"}
         ]
     }
     return sites
@@ -168,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlInput = document.querySelector("#url")
     const cancel = document.querySelector("#cancel")
     const submit = document.querySelector("#submit")
+    const manageBtn = document.querySelector("#manageBtn")
 
     function addFormShow() {
         addClass(addForm, "show")
@@ -197,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     addBtn.addEventListener("click", addFormShow)
-    
+
     cancel.addEventListener("click", (e) => {
         e.preventDefault()
         addFormhide()
@@ -215,13 +231,19 @@ document.addEventListener("DOMContentLoaded", () => {
             box.appendChild(siteCard.render())
             addFormhide()
 
-            siteCard.save(sites)
+            siteCard.save(sites) // 储存 sites 数据
 
+            // 清空表单输入款
             nameInput.value = ""
             description.value = ""
         }
         else {
 
         }
+    })
+
+    manageBtn.addEventListener("click", () => {
+        let data = exportSitesData()
+        data.map((e) => console.log(e))
     })
 })
