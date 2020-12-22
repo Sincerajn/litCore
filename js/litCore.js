@@ -234,6 +234,7 @@ class CodeBox extends litCore {
 // 示例控件
 function renderExample() {
     let examples = document.querySelectorAll("lit-example")
+    if (!examples) return
 
     examples.forEach(example => {
         let demo = example.querySelector("lit-demo")
@@ -257,6 +258,8 @@ function renderExample() {
 // 折叠面板控件
 function renderCollapse() {
     let collapses = document.querySelectorAll("lit-collapse")
+    if (!collapses) return
+
     collapses.forEach(collapse => {
         let items = collapse.querySelectorAll("lit-collapse-item")
         items.forEach(item => { // 遍历折叠面板子项
@@ -299,6 +302,7 @@ function renderDrawer() {
     let drawer = document.querySelector("lit-drawer")
     let menuBtn = document.querySelector("lit-menu-btn")
     let headerHeight = document.querySelector("lit-header").scrollHeight
+    if (!drawer) return
 
     function hideEvent() { // 用于保留于内存
         hideDrawer()
@@ -368,7 +372,9 @@ function renderDrawer() {
 
 
 function renderTextarea() {
-    let textareas = document.querySelectorAll("textarea.-lit-textarea")
+    let textareas = document.querySelectorAll("textarea.-lit")
+    if (!textareas) return
+
     textareas.forEach((textarea) => {
         const style = window.getComputedStyle(textarea)
         const paddingTop = parseFloat(style.paddingTop.replace("px", ""))

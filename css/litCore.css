@@ -1,8 +1,8 @@
 /*
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
- * @LastEditors: Sincerajn
- * @LastEditTime: 2020-02-22 17:05:44
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-12-22 14:45:08
  */
 /*
  * @Author: Sincerajn
@@ -468,9 +468,7 @@ a.-lit:hover {
 }
 
 lit-btn,
-a.-lit-btn,
-input[type=button].-lit-btn,
-button.-lit-btn,
+.-lit-btn,
 input[type=button].-lit,
 button.-lit {
   font-size: 1rem;
@@ -488,9 +486,7 @@ button.-lit {
 }
 
 lit-btn:hover,
-a.-lit-btn:hover,
-input[type=button].-lit-btn:hover,
-button.-lit-btn:hover,
+.-lit-btn:hover,
 input[type=button].-lit:hover,
 button.-lit:hover {
   text-decoration: none;
@@ -499,18 +495,14 @@ button.-lit:hover {
 }
 
 lit-btn:active,
-a.-lit-btn:active,
-input[type=button].-lit-btn:active,
-button.-lit-btn:active,
+.-lit-btn:active,
 input[type=button].-lit:active,
 button.-lit:active {
   box-shadow: none;
 }
 
 lit-btn.-lit-icon,
-a.-lit-btn.-lit-icon,
-input[type=button].-lit-btn.-lit-icon,
-button.-lit-btn.-lit-icon,
+.-lit-btn.-lit-icon,
 input[type=button].-lit.-lit-icon,
 button.-lit.-lit-icon {
   display: flex;
@@ -525,27 +517,21 @@ button.-lit.-lit-icon {
 }
 
 lit-btn.-lit-icon:hover,
-a.-lit-btn.-lit-icon:hover,
-input[type=button].-lit-btn.-lit-icon:hover,
-button.-lit-btn.-lit-icon:hover,
+.-lit-btn.-lit-icon:hover,
 input[type=button].-lit.-lit-icon:hover,
 button.-lit.-lit-icon:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 lit-btn.-lit-icon:active,
-a.-lit-btn.-lit-icon:active,
-input[type=button].-lit-btn.-lit-icon:active,
-button.-lit-btn.-lit-icon:active,
+.-lit-btn.-lit-icon:active,
 input[type=button].-lit.-lit-icon:active,
 button.-lit.-lit-icon:active {
   box-shadow: none;
 }
 
 lit-btn:disabled,
-a.-lit-btn:disabled,
-input[type=button].-lit-btn:disabled,
-button.-lit-btn:disabled,
+.-lit-btn:disabled,
 input[type=button].-lit:disabled,
 button.-lit:disabled {
   box-shadow: none;
@@ -554,17 +540,14 @@ button.-lit:disabled {
 }
 
 lit-btn:disabled:hover,
-a.-lit-btn:disabled:hover,
-input[type=button].-lit-btn:disabled:hover,
-button.-lit-btn:disabled:hover,
+.-lit-btn:disabled:hover,
 input[type=button].-lit:disabled:hover,
 button.-lit:disabled:hover {
   box-shadow: none;
 }
 
-lit-input, textarea.-lit-textarea,
-textarea.-lit, lit-textarea,
-input[type=text].-lit-input,
+lit-input, textarea.-lit, lit-textarea,
+.-lit-input,
 input[type=text].-lit {
   font-size: inherit;
   font-family: "Noto Serif SC", Georgia, serif;
@@ -575,21 +558,18 @@ input[type=text].-lit {
   transition: 0.3s;
 }
 
-lit-input:hover, textarea.-lit-textarea:hover,
-textarea.-lit:hover, lit-textarea:hover,
-input[type=text].-lit-input:hover,
+lit-input:hover, textarea.-lit:hover, lit-textarea:hover,
+.-lit-input:hover,
 input[type=text].-lit:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-lit-input:focus, textarea.-lit-textarea:focus,
-textarea.-lit:focus, lit-textarea:focus,
-input[type=text].-lit-input:focus,
+lit-input:focus, textarea.-lit:focus, lit-textarea:focus,
+.-lit-input:focus,
 input[type=text].-lit:focus {
   outline: 2px solid #795548;
 }
 
-textarea.-lit-textarea,
 textarea.-lit {
   width: calc(100% - 2rem);
   min-height: 3em;
