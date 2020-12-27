@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-12-22 14:45:08
+ * @LastEditTime: 2020-12-27 21:24:00
  */
 /*
  * @Author: Sincerajn
@@ -333,7 +333,8 @@ header.-lit {
   background: #ffffff;
   padding: .5rem 1rem;
   margin-bottom: 2rem;
-  z-index: 10;
+  transition: .3s;
+  z-index: 1000;
 }
 
 lit-header.-shadow,

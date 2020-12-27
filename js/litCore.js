@@ -12,6 +12,33 @@ let lit = {
         return [...new Set(array)]
     },
 
+    // 函数防抖
+    debounce: (fun, wait) => {
+        let timeout = null
+
+        return function () {
+            if (timeout !== null) {
+                clearTimeout(timeout)
+            }
+            timeout = setTimeout(fun, wait)
+        }
+    },
+
+    // 函数节流
+    throttle: (fun, delay) => {
+        let prev = Date.now()
+        return function () {
+            let context = this
+            let args = arguments
+            let now = Date.now()
+
+            if (now - prev >= delay) {
+                fun.apply(context, args)
+                prev = Date.now()
+            }
+        }
+    },
+
     createElement: (tagName, text) => {
         if (tagName) {
             let element = document.createElement(tagName)
@@ -44,8 +71,6 @@ let lit = {
         if (elements instanceof HTMLElement) {
             if (!lit.hasClass(elements, inputClass))
                 elements.className += ` ${inputClass}`
-            else
-                console.log(`${elements.localName} 已存在为 ${inputClass} 的 class`)
         }
         else if (elements instanceof NodeList) {
             elements.forEach(e => {
@@ -370,7 +395,7 @@ function renderDrawer() {
     }
 }
 
-
+// 多行输入框控件
 function renderTextarea() {
     let textareas = document.querySelectorAll("textarea.-lit")
     if (!textareas) return
@@ -388,10 +413,28 @@ function renderTextarea() {
     })
 }
 
+// 黏着阴影顶栏控件
+function renderHeader() {
+    let header = document.querySelector("lit-header")
+    if (!header) return
+
+    if (header.getAttribute('lit-sticky') === null) return
+
+    window.addEventListener('scroll', () => {
+        if (document.documentElement.scrollTop != 0) {
+            lit.addClass(header, '-shadow -sticky')
+        }
+        else {
+            lit.removeClass(header, '-shadow -sticky')
+        }
+    })
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     renderTextarea()
     renderExample()
     renderCollapse()
     renderDrawer()
+    renderHeader()
 })
