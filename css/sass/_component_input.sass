@@ -1,0 +1,23 @@
+@import "_global" // 全局样式
+
+// 单行输入框
+_lit-input,
+input[type=text].-lit
+    font:
+        size: inherit
+        family: $serif
+    width: 16em
+    max-width: calc(100% - 2rem)
+    padding: $text-based
+    border: none
+    box-shadow: $controls-normal-shadow
+    outline: none
+    transition: $short-duration
+    &:hover
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .3)
+    &:focus
+        outline: 2px solid $accent
+lit-input
+    @extend _lit-input
+    display: inline-block
+    -webkit-user-modify: read-write-plaintext-only

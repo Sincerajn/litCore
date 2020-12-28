@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-12-27 21:24:00
+ * @LastEditTime: 2020-12-28 23:37:55
  */
 
 @import "_global" // 全局样式
@@ -324,28 +324,14 @@ button.-lit,
             box-shadow: none
 
 
-// 单行输入框
-lit-input,
-.-lit-input,
-input[type=text].-lit,
-    font: 
-        size: inherit
-        family: $serif
-    padding: $text-baesd
-    border: none
-    box-shadow: $controls-normal-shadow
-    outline: none
-    transition: $short-duration
-    &:hover
-        box-shadow: 0 2px 6px rgba(0, 0, 0, .3)
-    &:focus
-        outline: 2px solid $accent
+
+@import "_component_input" // 单行输入框
 
 
 // 多行输入框
 // textarea.-lit-textarea,
 textarea.-lit
-    @extend lit-input
+    @extend _lit-input
     width: calc(100% - 2rem)
     min-height: 3em
     text-align: justify
@@ -353,7 +339,7 @@ textarea.-lit
     overflow-y: hidden
     resize: none
 lit-textarea
-    @extend lit-input
+    @extend _lit-input
     display: block
     padding: 1rem
     min-height: 3em
@@ -382,7 +368,7 @@ ul.-lit,
     padding: 0
     li.-lit
         list-style: none
-        padding: $text-baesd
+        padding: $text-based
         &:hover
             background: rgba(0, 0, 0, .04)
         a
@@ -421,7 +407,7 @@ nav.-lit
 
     a
         color: inherit
-        padding: $text-baesd
+        padding: $text-based
         text-decoration: none
         transition: $short-duration
         &:hover
