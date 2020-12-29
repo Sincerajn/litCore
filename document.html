@@ -88,14 +88,14 @@
           </lit-example>
           <h3>按钮</h3>
           <p>
-            为 <code>a</code>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit-btn</code>
+            为 <del><code>a</code></del>、<code>input[type = button]</code> 和 <code>button</code> 元素添加 <code>-lit</code>
             类，以获得按钮样式。
           </p>
           <lit-example>
             <lit-demo>
-              <button class="-lit-btn">按钮</button>
-              <button class="-lit-btn">按钮</button>
-              <button class="-lit-btn" disabled>按钮</button>
+              <input type="button" value="按钮" class="-lit">
+              <button class="-lit">按钮</button>
+              <button class="-lit" disabled>按钮</button>
             </lit-demo>
             <pre><code>&lt;a href="javascript:;" class="-lit-btn"&gt;按钮&lt;/a&gt;
 &lt;input type="button" class="-lit-btn" value="按钮"&gt;
@@ -106,7 +106,6 @@
           <lit-example>
             <lit-demo>
               <input class="-lit" type="text">
-              <lit-input></lit-input>
             </lit-demo>
             <pre><code>&lt;input class="-lit" type="text"&gt;</code></pre>
           </lit-example>

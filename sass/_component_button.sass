@@ -1,0 +1,47 @@
+@import "_global"
+
+// 按钮
+_lit-btn,
+input[type=button].-lit,
+button.-lit,
+    font: 
+        size: 1rem
+        weight: normal
+    line-height: 1em
+    text-decoration: none
+    color: inherit
+    background: $btn-normal-color
+    padding: .5em 1em
+    border: none
+    border-radius: 2px
+    outline: none
+    box-shadow: $controls-normal-shadow
+    cursor: pointer
+    transition: .2s
+    &:hover
+        text-decoration: none
+        box-shadow: $controls-hover-shadow
+        transition: $short-duration
+    &:active
+        box-shadow: none
+
+    &.-lit-icon
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 48px
+        height: 48px
+        padding: 0
+        border-radius: 50%
+        box-shadow: none
+        &:hover
+            box-shadow: $controls-hover-shadow
+        &:active
+            box-shadow: none
+
+    &:disabled
+        box-shadow: none
+        cursor: not-allowed
+        opacity: .5
+        &:hover
+            box-shadow: none

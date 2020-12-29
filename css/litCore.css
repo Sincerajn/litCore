@@ -2,7 +2,7 @@
  * @Author: Sincerajn
  * @Date: 2020-02-20 13:40:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-12-28 23:37:55
+ * @LastEditTime: 2020-12-29 23:06:21
  */
 /*
  * @Author: Sincerajn
@@ -468,12 +468,18 @@ a.-lit:hover {
   text-decoration: underline;
 }
 
-lit-btn,
-.-lit-btn,
+/*
+ * @Author: Sincerajn
+ * @Date: 2020-02-20 13:49:07
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-12-28 23:50:03
+ */
+_lit-btn,
 input[type=button].-lit,
 button.-lit {
   font-size: 1rem;
   font-weight: normal;
+  line-height: 1em;
   text-decoration: none;
   color: inherit;
   background: #efefef;
@@ -486,8 +492,7 @@ button.-lit {
   transition: .2s;
 }
 
-lit-btn:hover,
-.-lit-btn:hover,
+_lit-btn:hover,
 input[type=button].-lit:hover,
 button.-lit:hover {
   text-decoration: none;
@@ -495,15 +500,13 @@ button.-lit:hover {
   transition: 0.3s;
 }
 
-lit-btn:active,
-.-lit-btn:active,
+_lit-btn:active,
 input[type=button].-lit:active,
 button.-lit:active {
   box-shadow: none;
 }
 
-lit-btn.-lit-icon,
-.-lit-btn.-lit-icon,
+_lit-btn.-lit-icon,
 input[type=button].-lit.-lit-icon,
 button.-lit.-lit-icon {
   display: flex;
@@ -511,28 +514,24 @@ button.-lit.-lit-icon {
   align-items: center;
   width: 48px;
   height: 48px;
-  background: transparent;
   padding: 0;
   border-radius: 50%;
   box-shadow: none;
 }
 
-lit-btn.-lit-icon:hover,
-.-lit-btn.-lit-icon:hover,
+_lit-btn.-lit-icon:hover,
 input[type=button].-lit.-lit-icon:hover,
 button.-lit.-lit-icon:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-lit-btn.-lit-icon:active,
-.-lit-btn.-lit-icon:active,
+_lit-btn.-lit-icon:active,
 input[type=button].-lit.-lit-icon:active,
 button.-lit.-lit-icon:active {
   box-shadow: none;
 }
 
-lit-btn:disabled,
-.-lit-btn:disabled,
+_lit-btn:disabled,
 input[type=button].-lit:disabled,
 button.-lit:disabled {
   box-shadow: none;
@@ -540,8 +539,7 @@ button.-lit:disabled {
   opacity: .5;
 }
 
-lit-btn:disabled:hover,
-.-lit-btn:disabled:hover,
+_lit-btn:disabled:hover,
 input[type=button].-lit:disabled:hover,
 button.-lit:disabled:hover {
   box-shadow: none;
@@ -553,10 +551,11 @@ button.-lit:disabled:hover {
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2020-12-28 23:50:03
  */
-_lit-input, lit-input, textarea.-lit, lit-textarea,
+_lit-input, textarea.-lit, lit-textarea,
 input[type=text].-lit {
   font-size: inherit;
   font-family: "Noto Serif SC", Georgia, serif;
+  width: 16em;
   max-width: calc(100% - 2rem);
   padding: 0.5em 1em;
   border: none;
@@ -565,19 +564,14 @@ input[type=text].-lit {
   transition: 0.3s;
 }
 
-_lit-input:hover, lit-input:hover, textarea.-lit:hover, lit-textarea:hover,
+_lit-input:hover, textarea.-lit:hover, lit-textarea:hover,
 input[type=text].-lit:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-_lit-input:focus, lit-input:focus, textarea.-lit:focus, lit-textarea:focus,
+_lit-input:focus, textarea.-lit:focus, lit-textarea:focus,
 input[type=text].-lit:focus {
   outline: 2px solid #795548;
-}
-
-lit-input {
-  width: 7em;
-  -webkit-user-modify: read-write-plaintext-only;
 }
 
 textarea.-lit {
