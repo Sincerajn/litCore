@@ -8,8 +8,11 @@ let lit = {
     // },
 
     // 工具库
-    unique: (array) => { // 数组去重
-        return [...new Set(array)]
+    unique: (array) => [...new Set(array)], // 数组去重
+    random: (x, y, step = 0) => {
+        let range = y - x
+        let r = Math.random() * range + x
+        return Number(r.toFixed(step))
     },
 
     // 函数防抖
@@ -23,7 +26,6 @@ let lit = {
             timeout = setTimeout(fun, wait)
         }
     },
-
     // 函数节流
     throttle: (fun, delay) => {
         let prev = Date.now()
